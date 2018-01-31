@@ -1,0 +1,3948 @@
+\documentclass[12pt]{article}
+\usepackage{epsf}
+\usepackage{amsmath,amssymb}
+\usepackage{cancel}
+
+\usepackage[dvips]{graphicx}
+
+\usepackage{comment}
+
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{21.5cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{0cm}
+\setlength{\footskip}{1cm}
+
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+
+\begin{document}
+
+\newcommand{\mathhyphen}{\mathchar"712D}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\eps}[1]{\varepsilon_{#1}}
+\newcommand{\epsD}{\bar{\varepsilon}_{\rm D}}
+\newcommand{\msbar}{\overline{\rm MS}}
+\renewcommand{\det}{{\rm Det}}
+
+\newcommand{\fnc}{{\cal G}}
+
+\newcommand{\rem}[1]{{$\spadesuit$\bf #1$\spadesuit$}}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{0}
+
+\begin{titlepage}
+
+\begin{center}
+
+\hfill UT-18-??\\
+%\hfill January, 2018\\
+\hfill \today
+
+\vskip .75in
+
+{\Large\bf
+  Decay Rate of the Electroweak Vacuum\\[1mm]
+  in the Standard Model and Beyond\\
+}
+
+\vskip .5in
+
+{\large
+  So Chigusa$^{\rm (a)}$, 
+  Takeo Moroi$^{\rm (a)}$ and
+  Yutaro Shoji$^{\rm (b)}$
+}
+
+\vskip 0.25in
+
+$^{\rm (a)}${\em 
+  Department of Physics, University of Tokyo, Tokyo 113-0033, Japan}
+
+\vskip 0.1in
+$^{\rm (b)}${\em 
+Institute for Cosmic Ray Research, The University of Tokyo, 
+Kashiwa 277-8582, Japan}
+
+
+\end{center}
+
+\vskip .5in
+
+\begin{abstract}
+
+  The decay rate of the electroweak vacuum is studied in the standard
+  model as well as in various models beyond the standard model. We use
+  a state-of-the-art technique to calculate the decay rate of a false
+  vacuum in gauge theory.  We present a detailed formula to calculate
+  radiative corrections to the decay rate, which can be applied to any
+  model that exhibits classical conformality at a high energy scale.
+
+  \rem{More later}
+
+%  With
+%  expanded analytic formulae for one-loop corrections, one can evaluate a
+%  decay rate at the one-loop level almost instantaneously.
+  
+\end{abstract}
+
+\rem{
+$X$ for mode functions should be replaced by something else.
+$J_G$ may be confusing because we use $J$ for angular momentum.  Maybe
+$J_G\rightarrow \mathcal J_G$???
+Don't use the word ``cut-off'' for the $R$-integration, because it is
+misleading.
+}
+
+
+\end{titlepage}
+
+\setcounter{page}{1}
+\renewcommand{\thefootnote}{\#\arabic{footnote}}
+\setcounter{footnote}{0}
+
+%%%%%%%%%%%%%%%%%%%%
+%Introduction
+\section{Introduction}
+\label{sec_intro}
+\setcounter{equation}{0}
+
+In the standard model (SM) of particle physics, it has been known that
+the Higgs quartic coupling may become negative at a high scale through
+quantum corrections, so that the Higgs potential develops a deeper
+vacuum.  The detailed shape of the Higgs potential depends on the
+Higgs and top masses; with the recently observed Higgs mass of $\sim
+125\ {\rm GeV}$, it has been known that the electroweak (EW) vacuum is
+not absolutely stable if the SM is valid up to $\sim 10^{10}\ {\rm
+  GeV}$ or higher.\footnote
+%%
+{For the absolute stability of the EW vacuum in the standard model,
+  see
+  \cite{Degrassi:2012ry,Alekhin:2012py,Cabibbo:1979ay,Hung:1979dn}.
+  \rem{Maybe, need more!!!!}
+}
+%%
+In such a case, the EW vacuum can decay into the deeper vacuum through
+tunneling in quantum field theory.  The lifetime of the EW vacuum has
+been one of the important topics in particle phenomenology and cosmology
+\cite{???}.  In addition, the decay rate is highly sensitive to new
+particles that couple to the Higgs boson because of additional quantum
+corrections to the Higgs effective potential \cite{????}. It allows us
+to constrain models beyond the SM even when new particles are much
+heavier than the EW scale.\footnote
+%%
+{\rem{Comment on the Higgs dynamics during inflation????}}
+%%
+
+The decay rate of the EW vacuum has been discussed for a long time.
+The calculation of the decay rate at the one-loop level first appeared
+in \cite{Isidori:2001bm}, and was also discussed in other literature
+\cite{????, Andreassen:2017rzq, Chigusa:2017dux}.\footnote
+%%
+{For earlier works on the decay rate of the EW vacuum, see
+  \cite{????}.}
+%%
+However, there are subtleties in the treatment of zero modes related
+to the gauge symmetry breaking, which make it difficult to perform a
+precise and reliable calculation of the decay rate.  Recently, a
+prescription for the treatments of the gauge zero modes has been
+clarified \cite{Endo:2017gal,Endo:2017tsz}, based on which complete
+calculations for the SM case were carried out
+\cite{Andreassen:2017rzq,Chigusa:2017dux}.
+
+The lifetime of a vacuum can be evaluated through a rate of bubble
+nucleation in unit volume and unit time as formulated in
+\cite{Coleman:1977py,Callan:1977pt}.  The rate is expressed in the
+form of
+\begin{align}
+ \gamma = \mathcal Ae^{-\mathcal B},
+\end{align}
+where $\mathcal B$ is the action of a so-called bounce solution, and
+prefactor $\mathcal A$ is essentially quantum corrections to $\mathcal
+B$, having mass dimension 4.  Bounce solution is an $O(4)$ symmetric
+solution of the Euclidean equations of motion, connecting the two
+vacua. In the SM, there are infinite number of bounce solutions owing
+to (i) the classical scale invariance at a high energy scale, (ii) the
+global symmetries corresponding to $SU(2)_L\times U(1)_Y/U(1)_{\rm
+  EM}$, as well as (iii) the translational invariance.  It has been
+known that (iii) represents the infinite volume of spacetime, giving
+the mass dimension to $\mathcal A$ \cite{Callan:1977pt}.  On the
+contrary, a proper procedure to take account of the effects of the
+zero-modes related to (i) and (ii) were not well understood until
+\cite{Andreassen:2017rzq,Chigusa:2017dux}.  Although the dominant
+suppression of the decay rate comes from $\mathcal B$, the prefactor
+$\mathcal A$ is also important. This is because of large quantum
+corrections from the top quarks and the gauge bosons. Thus, it is
+essential to calculate both $\mathcal A$ and $\mathcal B$ to determine
+the decay rate precisely.  In this paper, we calculate $\mathcal A$
+properly taking into account the effects of zero-modes, which gives a
+reliable estimation of the decay rate.
+
+We first present a detailed formulation of the calculation of the
+decay rate at the one-loop level. Each of the one-loop corrections is
+given in the form of a ratio of functional determinants.  We obtain a
+complete set of analytic formulae that can be used for any models that
+exhibit classical conformality at a high energy scale like the SM.
+Then, as one of the important applications, we calculate the decay
+rate of the EW vacuum in the SM. We find that the decay rate of the EW
+vacuum is much longer than the age of the universe. We also find that
+one-loop corrections from the top quark and the gauge bosons are very
+large although there is an accidental cancellation. It shows the
+importance of $\mathcal A$ for the evaluation of a decay rate.  We
+also evaluate the decay rates of the EW vacuum for models with extra
+fermions which couples to the Higgs field.  In such models, the EW
+vacuum tends to be destabilized compared with that of the SM
+\cite{Kobakhidze:2013pya, Khan:2012zw, Dev:2013ff, Rodejohann:2012px,
+  Xiao:2014kba} since the quartic coupling of the Higgs field is
+strongly driven into a negative value. We consider three cases where
+we have, in addition to the SM particles, (i) vector-like fermions
+having the same SM charges as left quark and down quark, $(Q_{\rm
+  ex},\bar{Q}_{\rm ex}, D_{\rm ex}, \bar{D}_{\rm ex})$, (ii)
+vector-like fermions having the same SM charges as left lepton and
+electron, $(L_{\rm ex},\bar{L}_{\rm ex}, E_{\rm ex}, \bar{E}_{\rm
+  ex})$, and (iii) a right-handed neutrino, $(N_R)$. We give
+constraints on their couplings and masses, requiring that the lifetime
+of the EW vacuum is longer than the age of the universe.
+
+\rem{TM: I will check the following paragraph later}
+
+This paper is organized as follows. In section \ref{sec_formulation},
+we outline the formulation for the decay rate at the one-loop
+level. The detail of the calculation is given in Appendices
+\ref{apx_determinantJ} $-$ \ref{apx_divpart}.  We provide analytic
+formulae for each particle that couples to the Higgs boson and discuss
+resummation of logarithmic terms using the renormalization group
+(RG). In section \ref{sec_SM}, we evaluate the vacuum decay rate in
+the SM. All the technical details are covered in this section. In
+section \ref{sec_extra}, we analyze decay rates in models with extra
+fermions. Finally, we conclude in section \ref{sec_conclusion}.
+
+%%%%%%%%%%%%%%%%%%%%
+%Formulation
+\section{Formulation}
+\label{sec_formulation}
+\setcounter{equation}{0}
+
+We first discuss how we calculate the decay rate of the EW vacuum.  In
+the SM, the EW vacuum becomes unstable due to the RG running of the
+quartic coupling constant of the Higgs boson, which makes the quartic
+coupling constant negative at a high scale.  In the SM, the
+instability occurs when the Higgs amplitude becomes much larger than
+the EW scale.  Then, the typical size of the field value for the
+bounce configuration is much larger than the EW scale.  In such a
+case, we can safely neglect the quadratic term in the Higgs potential
+because the mass-squared parameter for the quartic term is around the
+EW scale.
+
+In this section, in order to discuss how the decay rate of the false
+vacuum in such a situation can be evaluated, we use a toy model with
+$U(1)$ gauge symmetry to derive relevant formulas.  The calculation of
+the decay rate of the EW vacuum is almost parallel to that in the case
+with $U(1)$ gauge symmetry; the application of the formulas to the
+case of the SM will be explained in the next section.
+
+\subsection{Set up}
+
+\rem{Comment on the Planck suppressed operator.}
+
+Let us first summarize the set up of our analysis.  We study the decay
+rate of a false vacuum whose instability is due to an RG running of
+the quartic coupling constant of a scalar field $\Phi$.  We assume that
+$\Phi$ is charged under the $U(1)$ gauge symmetry (with charge $+1$);
+the kinetic term includes 
+\begin{align}
+  {\cal L}_{\rm kin} \ni
+  \left[
+    \left(
+      \partial_\mu - i g A_\mu 
+    \right) \Phi
+  \right]^\dagger
+  \left(
+    \partial_\mu - i g A_\mu 
+  \right) \Phi,
+\end{align}
+where $A_\mu$ is the gauge field and $g$ is the gauge coupling
+constant, while the scalar potential is approximated as
+\begin{align}
+  V(\Phi) = \lambda(\Phi^\dagger\Phi)^2.
+  \label{V(Phi)}
+\end{align}
+$\lambda$ depends on the renormalization scale $\mu$ and is assumed to
+become negative at a high scale due to the RG effect.  Notice that we
+neglect the mass-squared term in the scalar potential, assuming that
+$\lambda$ becomes negative at a scale much higher than the mass
+parameter in the Lagrangian.  With the set up mentioned above, it is
+notable that the scalar potential has scale-invariance at the classical
+level.  In the application to the case of the SM, $\Phi$ corresponds to
+the Higgs doublet and $\lambda$ corresponds to the Higgs quartic
+coupling constant.
+
+Hereafter, we perform a detailed study of the effects of the fields
+coupled to the scalar field $\Phi$ on the decay rate of the false
+vacuum.  We consider the Lagrangian which contains the following
+interaction terms:
+\begin{align}
+  \mathcal L_{\rm int} \ni
+  \kappa\sigma^2|\Phi|^2
+  + ( y \Phi \bar{\psi}_L \psi_R + {\rm h.c.} )
+  + V(\Phi),
+\end{align}
+where $\sigma$ is a real scalar field, and $\psi_L$ and $\psi_R$ are
+chiral fermions (with relevant $U(1)$ charges).\footnote
+%%
+{We assume that there exist other chiral fermions which cancel out
+  the gauge anomaly.}
+%%
+We take $y$ real, and $\kappa>0$.  We neglect dimensionful parameters
+which are assumed to be much smaller than the typical scale of the
+bounce.  In addition, in order to take into account the effects of
+gauge-boson loops, gauge fixing is necessary.  Following
+\cite{Kusenko, EMNS2}, we take the gauge fixing function of the
+following form:
+\begin{align}
+ \mathcal F = \partial_\mu A_\mu.
+\end{align}
+Then, the gauge fixing term and the Lagrangian of the ghosts (denoted
+as $\bar{c}$ and $c$) are given by
+\begin{align}
+  \mathcal L_{\rm GF} & = \frac{1}{2\xi}\mathcal F^2, \\
+  \mathcal L_{\rm FP} & = - \bar{c} \partial_\mu \partial_\mu c,
+  \label{L_FP}
+\end{align}
+where $\xi$ is the gauge-fixing parameter.\footnote
+%%
+{In the non-Abelian case, one of $\partial_\mu$ in Eq.\ \eqref{L_FP}
+  is replaced by the covariant derivative. The interaction of the
+  ghosts with the gauge field does not affect the following
+  discussion.}
+%%
+
+With our choice of the gauge fixing function, a global $U(1)$ symmetry
+remains in the Lagrangian.  As a result, the bounce solution can be
+written in the following form:
+\begin{align}
+  \Phi|_{\rm bounce} = \frac{1}{\sqrt{2}} e^{i\theta}
+  \bar\phi(r),
+\end{align}
+where $\theta$ is a real parameter.  The function $\bar{\phi}$ obeys
+\begin{align}
+  \partial_r^2\bar\phi(r)
+  +\frac{3}{r}\partial_r\bar\phi(r)
+  -\lambda\bar\phi^3(r) = 0,
+  \label{eq_Bounce}
+\end{align}
+with boundary conditions $\partial_r\bar\phi(0) = 0$ and
+$\bar\phi(\infty) = 0$.  For a negative $\lambda$, we have a series of
+Fubini-Lipatov instanton solutions \cite{Fubini:1976jm,Lipatov:1976ny}:
+\begin{align}
+  \bar\phi(r) = \frac{\bar\phi_C}{1+R^{-2} r^2},
+  \label{BounceSolution}
+\end{align}
+which is parameterized by $\bar\phi_C$ (i.e., the field value at the
+center of the bounce) and
+\begin{align}
+  R \equiv \sqrt{\frac{8}{|\lambda|}} \phi_C^{-1}.
+\end{align}
+The bounce action is given by
+\begin{align}
+ \mathcal B = \frac{8\pi^2}{3|\lambda|}.
+\end{align}
+Notice that the bounce action is independent of $\bar\phi_C$ owing to
+the scale invariance.
+
+Once the bounce solution is obtained, we may integrate over the
+fluctuation around it.  Around the bounce configuration with
+$\theta=0$, we may expand
+\begin{align}
+  \Phi = \frac{1}{\sqrt{2}} \left( 
+    \bar\phi + h + i \varphi
+  \right),
+\end{align}
+where $h$ and $\varphi$ are physical Higgs mode and Nambu-Goldstone
+(NG) mode, respectively.  At the one-loop level, the prefactor can be
+decomposed as a product of the contributions of individual fields:
+\begin{align}
+  \mathcal A e^{-\mathcal B} = \frac{\mathcal A^{(h)}}{\mathcal V_{\rm 4D}}
+  \mathcal A^{(\sigma)}\mathcal A^{(\psi)}\mathcal A^{(A_\mu,\varphi)}
+  \mathcal A^{(c,\bar{c})}e^{-\mathcal B},
+  \label{eq_AeB}
+\end{align}
+where $\mathcal V_{\rm 4D}$ is the volume of spacetime, $A^{(X)}$ is
+the contribution from particle $X$.  Here, $A_\mu$ is the gauge
+field. Each of the factors has a form of
+\begin{align}
+ \mathcal A^{(X)} = \left(
+  \frac{\det\mathcal M^{(X)}}{\det \widehat{\mathcal M}^{(X)}}
+ \right)^{w^{(X)}},
+\end{align}
+where $\mathcal M^{(X)}$ and $\widehat{\mathcal M}^{(X)}$ are the
+fluctuation operators around the bounce solution and around the false
+vacuum, respectively.  Here, $w^{(X)} = 1$ for Dirac fermions and
+Faddeev-Popov ghosts, and $w^{(X)} = -1/2$ for the other bosonic
+fields.  The fluctuation operator is defined as second derivatives of
+the action:
+\begin{align}
+ \mathcal M^{(X)} \delta^4(x-y) = \left\langle
+ \frac{\delta^2S(X)}{\delta X(x)\delta X(y)}
+ \right\rangle,
+\end{align}
+where the brackets indicate the expectation value with the bounce
+solution. Since the Faddeev-Popov ghosts do not couple to the Higgs
+boson with the present choice of the gauge fixing function, ${\mathcal
+  M}^{(c,\bar{c})}= \widehat{\mathcal M}^{(c,\bar{c})}$, and
+\begin{align}
+  \mathcal A^{(c,\bar{c})}=1.
+\end{align}
+
+\subsection{Functional determinant}
+
+\rem{Just for the $U(1)$ case; superscript ``a'' is not necessary!!!!!}
+
+For the evaluation of the functional determinants, we first decompose
+the fluctuations into partial waves, making use of the $O(4)$ symmetry
+of the bounce;
+\begin{align}
+ \frac{\det\mathcal M^{(X)}}{\det \widehat{\mathcal M}^{(X)}}
+ = \prod_{J=0}^{\infty}
+ \left(
+  \frac{\det \mathcal M^{(X)}_J}{\det \widehat{\mathcal M}^{(X)}_J}
+ \right)^{n^{(X)}_J},
+\end{align}
+where $\mathcal M^{(X)}_J$ is the fluctuation operator for each
+partial wave labeled by non-negative half-integer $J =
+0,1/2,1,\cdots$. Here, $n^{(\psi)}_J = (2J+1)(2J+2)$ for fermions, and
+$n^{(X)}_J = (2J+1)^2$ for the others.  The explicit form of the
+fluctuation operators are given in Appendix
+\ref{apx_determinantJ}. From a theorem \cite{Gelfand:1959nq,
+  Dashen:1974ci, Kirsten:2003py, Kirsten:2004qv, Endo:2017tsz}, we
+have
+\begin{align}
+ \frac{\det \mathcal M^{(X)}_J}{\det \widehat{\mathcal M}^{(X)}_J} =
+ \left(
+  \lim_{r\to\infty}\frac{\det\Psi}{\det\hat\Psi}
+ \right)
+ \left(
+  \lim_{r\to0}\frac{\det\Psi}{\det\hat\Psi}
+ \right)^{-1},
+ \label{eq_theorem}
+\end{align}
+where $\Psi = (\Psi_1,\Psi_2,\cdots)$ and $\hat\Psi =
+(\hat\Psi_1,\hat\Psi_2,\cdots)$ are sets of independent solutions of
+\begin{align}
+  \mathcal M^{(X)}_J\Psi_i = &\, 0,\\
+  \widehat{\mathcal M}^{(X)}_J\hat\Psi_i = &\, 0,
+\end{align}
+and are regular at $r = 0$. Notice that, when $\mathcal M^{(X)}_J$ is
+$n\times n$ object, there are $n$ independent solutions that are
+regular at $r = 0$. Since $\Psi_i$ and $\hat\Psi_i$ obey the same
+linear differential equations at $r\to\infty$, the ratio of the two
+determinant converges for each $J$.
+
+With a Fubini-Lipatov instanton, we can calculate the ratio
+analytically; the details of the calculation are given in Appendix
+\ref{apx_determinantJ}.  The ratios are given by
+\begin{align}
+  \frac{\det \mathcal M^{(h)}_J}{\det \widehat{\mathcal M}^{(h)}_J}
+  & = \frac{2J(2J-1)}{(2J+3)(2J+2)},
+  \label{detM^h}
+  \\
+  \frac{\det \mathcal M^{(\sigma)}_J}{\det \widehat{\mathcal M}^{(\sigma)}_J}
+  & = \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_\kappa)\Gamma(2J+2+z_\kappa)},
+  \\
+  \frac{\det \mathcal M^{(\psi)}_J}{\det \widehat{\mathcal
+      M}^{(\psi)}_J}
+  & =
+  \left[
+    \frac{[\Gamma(2J+2)]^2}{\Gamma\left(2J+2-z_y\right)\Gamma\left(2J+2+z_y\right)}
+  \right]^2,
+  \\
+  \frac{\det \mathcal M^{(A_\mu,\varphi)}_J}{\det \widehat{\mathcal M}^{(A_\mu,\varphi)}_J}
+  & = \frac{J}{J+1}
+  \left[
+    \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}
+  \right]^3,
+  \label{detM^gauge}
+\end{align}
+with
+\begin{align}
+  z_\kappa = & -\frac{1}{2}
+  \left(
+    1-\sqrt{1-8\frac{\kappa}{|\lambda|}}
+  \right),\\
+  ~z_g = & -\frac{1}{2}
+  \left(
+    1-\sqrt{1-8\frac{g^2}{|\lambda|}}
+  \right),\\
+  ~z_y = &
+  i\frac{y}{\sqrt{\lambda}}.
+\end{align}
+Here, $g$ is the gauge coupling constant, and $\Gamma(z)$ is the
+gamma function.
+
+\subsection{Zero mode}
+
+In the calculation of the decay rate of the EW vacuum with the present
+set up, there show up zero modes in association with dilatation,
+translation, and global transformation of the bounce solution.
+Consequently, $\mathcal M_0^{(h)},\mathcal M_{1/2}^{(h)}$ and
+$\mathcal M_0^{(A_\mu,\varphi)}$ have zero eigenvalues, and their
+determinants vanish as shown in eqs.\ \eqref{detM^h} and
+\eqref{detM^gauge}.  A naive inclusion of such results gives a
+divergent behavior of the decay rate, and hence careful treatments of
+the zero modes are necessary.
+
+When there is a zero mode, the saddle point approximation for the path
+integral breaks down and we need to go back to the original path
+integral.  Let us consider the path integral for a bosonic field.  We
+first decompose the fluctuation of the bosonic field (denoted as $X$)
+by using the eigenfunctions of the fluctuation operator $\mathcal
+M^{(X)}$:
+\begin{align}
+  X = \sum_ic_i \fnc_i,
+\end{align}
+where $c_i$ is the expansion coefficient while $X_i$ obeys
+\begin{align}
+  \mathcal M^{(X)} \fnc_i = \omega_i \fnc_i,
+\end{align}
+with $\omega_i$ being the eigenvalue.  We denote the zero mode as
+$\fnc_0$ (and hence $\lambda_0=0$).  In addition, we define 
+\begin{align}
+  \langle \fnc_i| \fnc_j \rangle = \frac{\delta_{ij}}{\mathcal N_i^2}.
+  \label{eq_normalization}
+\end{align}
+where the inner product is given by
+\begin{align}
+ \langle \fnc_i| \fnc_j\rangle = \int d^4x \fnc_i^\dagger(x) \fnc_j(x).
+\end{align}
+We leave $\mathcal N_i$'s unspecified since the final result is
+independent of them.  
+
+The path integral for a bosonic field $X$ is then defined as
+\begin{align}
+ \int \mathcal DXe^{-S^{(X)}[X]}
+ = \int \prod_i\frac{dc_i}{\sqrt{2\pi}\mathcal N_i}e^{-S^{(X)}[X]},
+\end{align}
+where $S^{(X)}[X]$ denotes the $X$-dependent terms in the action.  (We
+take $S^{(X)}[X=0]=0$.)  Applying the saddle point approximation for
+the modes other than the zero mode, the path integral is evaluated as
+\begin{align}
+  \int \prod_i\frac{dc_i}{\sqrt{2\pi}\mathcal N_i}e^{-S^{(X)}[X]}
+  = \int \frac{dc_0}{\sqrt{2\pi}\mathcal N_0}
+  \prod_{i\neq0}\frac{1}{\sqrt{\omega_i}}.
+\end{align}
+Notice that $\mathcal M^{(X)}$, $X_i$ and $\omega_i$ may depend on
+$c_0$ \cite{Weinberg???}.
+
+We are interested in the case where there exists a symmetry and the
+Lagrangian is invariant under a transformation (parameterized by $z$).
+Then, the zero mode is in association with such a symmetry.  In such a
+case, with the transformation of the bounce solution, $X$ varies as
+\begin{align}
+ X \to X + z \tilde{\fnc}_0+\mathcal O(z^2),
+\end{align}
+where the function $\tilde{\fnc}_0$ is proportional to $\fnc_0$.  The
+integration over $c_0$ can be understood as the integration over the
+collective coordinate $z$:
+\begin{align}
+  \frac{dc_0}{\sqrt{2\pi}\mathcal N_0}
+%   = 
+%   dz
+%   \sqrt{
+%     \frac{\langle\tilde{\fnc}_0|\tilde{\fnc}_0\rangle}
+%     {\langle \fnc_0|\fnc_0\rangle}
+%   }
+%   \frac{1}{\sqrt{2\pi}\mathcal N_0}
+  \rightarrow
+  dz\sqrt{\frac{\langle\tilde{\fnc}_0|\tilde{\fnc}_0\rangle}{2\pi}}.
+  \label{eq_dzIntegral}
+\end{align}
+
+Next, we discuss how we evaluate
+\begin{align*}
+  \sqrt{\frac{\langle\tilde{\fnc}_0|\tilde{\fnc}_0\rangle}{2\pi}}
+  \prod_{i\neq0}\frac{1}{\sqrt{\omega_i}}.
+\end{align*}
+To omit the zero eigenvalue from the functional determinant, we
+introduce a regulator to the fluctuation operator:
+%% 
+\begin{align}
+  \mathcal M^{(X)}\to\mathcal M^{(X)} + \nu \rho(x),
+\end{align}
+where $\nu$ is a small positive number, and $\rho(x)$ is an arbitrary
+function that satisfies
+\begin{align}
+  \langle \tilde{\fnc}_0|\rho|\tilde{\fnc}_0\rangle = 2\pi.
+  \label{eq_normalization}
+\end{align}
+Then, the path integral for the regularized fluctuation operator is
+given by
+\begin{align}
+  \int \prod_{i}\frac{dc_i}{\sqrt{2\pi}\mathcal N_i}
+  e^{-\frac{1}{2}c_jc_k\langle X_j|({\mathcal M}^{(X)}+\nu \rho)|X_k\rangle}
+  = \sqrt{\frac{\langle\tilde{\fnc}_0|\tilde{\fnc}_0\rangle}{2\pi}}
+  \frac{1}{\sqrt{\nu+\mathcal O(\nu^2)}}
+  \prod_{i\neq 0}\frac{1}{\sqrt{\omega_i+\mathcal O(\nu)}},
+\end{align}
+resulting in
+\begin{align}
+  \sqrt{\frac{\langle\tilde{\fnc}_0|\tilde{\fnc}_0\rangle}{2\pi}}
+  \prod_{i\neq0}\frac{1}{\sqrt{\omega_i}}
+  = \lim_{\nu\to0}\sqrt{\nu}\int \prod_{i}\frac{dc_i}{\sqrt{2\pi}\mathcal N_i}
+  e^{-\frac{1}{2}c_jc_k\langle X_j|({\mathcal M}^{(X)}+\nu \rho)|X_k\rangle}.
+\end{align}
+The integration in the above expression is nothing but $\det ({\mathcal
+M}^{(X)}+\nu \rho)$, and can be evaluated with the use of
+eq.~\eqref{eq_theorem}.  For example, when $\mathcal M_J^{(X)}$ is a
+$1\times1$ object, we have
+\begin{align}
+ \left(
+  \frac{\det\mathcal M^{(X)}_J}{\det\widehat{\mathcal M}^{(X)}_J}
+ \right)^{-1/2}
+ \to
+% \int dz
+% \lim_{\nu\to0}\sqrt{\nu}
+ \left(
+   \lim_{r\to\infty}\frac{\check\Psi(r)}{\hat\Psi(r)}
+ \right)^{-1/2},
+ \label{eq_detPrime}
+\end{align}
+where
+\begin{align}
+ \mathcal M_J^{(X)}\Psi(r)               & = 0,                  \\
+ \widehat{\mathcal M}_J^{(X)}\hat\Psi(r) & = 0,                  \\
+ \mathcal M_J^{(X)}\check\Psi(r)         & = 
+% -\nu \rho(r)\Psi(r)
+ - \rho(r)\Psi(r)
+ \label{eq_detPrimeFunc},
+\end{align}
+with $\lim_{r\to0}\Psi(r)/\hat\Psi(r) = 1$.  Here, we choose $\rho$ to
+be a function of $r$.
+%
+% $\rho(r)$ is the radial
+%part of $\rho(x)$.  Since this is a linear differential equation, we can
+%omit $\nu$ from eqs.~\eqref{eq_detPrime} and \eqref{eq_detPrimeFunc}.
+
+From Appendix \ref{apx_zeromode}, we have the following replacements
+to take care of the zero modes:
+\begin{align}
+  \left|
+    \frac{\det \mathcal M^{(h)}_0}{\det \widehat{\mathcal M}^{(h)}_0}
+  \right|^{-1/2}
+  & \to\int d \ln R
+  \sqrt{\frac{16\pi}{|\lambda|}},
+  %frac{1}{\bar\phi_C},
+  \label{eq_dilatationalZeromode}                                           \\
+  \left(
+    \frac{\det \mathcal M^{(h)}_{1/2}}{\det \widehat{\mathcal M}^{(h)}_{1/2}}
+  \right)^{-2}
+  & \to \left(
+    \frac{32\pi}{|\lambda|}\right)^2\left(\frac{|\lambda|}{8}\bar\phi_C^2
+  \right)^2
+  {\mathcal V}_{\rm 4D},
+  \\
+  \left(
+    \frac{\det \mathcal M^{(A^a,\varphi^a)}_0}
+    {\det \widehat{\mathcal M}^{(A^a,\varphi^a)}_0}
+  \right)^{-1/2}
+  & \to \int d\theta^aJ_G\sqrt{\frac{16\pi}{|\lambda|}},
+\end{align}
+with
+\begin{align}
+  J_G = \frac{\sqrt{2|\langle T^a\Phi\rangle|^2}}{|\bar\phi|}.
+\end{align}
+
+
+\rem{TM: $J_G$ and gauge volume, how shall we do???}
+
+
+\rem{I should rather say something different; as Matt, we can say we
+  have confirmed $\det\mathcal M_0^{(h)}<0$.
+Here, we take an absolute value for $\det\mathcal M_0^{(h)}$ since it
+has a negative eigenvalue.
+}
+
+\subsection{Renormalization}
+
+After taking the product over $J$, we have a UV divergence and thus we
+need to renormalize the result.  In this paper, we use the
+$\msbar$-scheme for the renormalization. Notice that the counter terms
+can subtract the divergence even when the background field is position
+dependent since the counter terms are apparently momentum independent.
+
+\rem{TM: above statement???}
+
+Since the dimensional regularization cannot be directly used in this
+evaluation, we first regularize the result as
+\begin{align}
+  \left[
+    \ln\mathcal A^{(X)}
+  \right]_{\eps{X}}
+  \equiv w^{(X)}\sum_{J=0}^{\infty}
+  \frac{n^{(X)}_J}{(1+\eps{X})^{2J}}\ln
+  \left(
+    \frac{\det \mathcal M^{(X)}_J}{\det \widehat{\mathcal M}^{(X)}_J}
+  \right),
+\end{align}
+where $\eps{X}$ is a positive number which will be taken to be zero at
+the end of the calculation. Since the divergence is at most a power of
+$J$, the sum converges.  In Appendix \ref{apx_infiniteSum}, we
+calculate the sum analytically, and obtain
+% get the
+% following results after summing over $J$:
+\begin{align}
+  \left[
+    \ln\mathcal A^{(\sigma)}
+  \right]_{\eps{\sigma}}
+  = &\, -\frac{1}{2}\sum_{J=0}^{\infty}\frac{(2J+1)^2}{(1+\eps{\sigma})^{2J}}
+  \ln\frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_\kappa)\Gamma(2J+2+z_\kappa)}
+  \nonumber \\
+  = &\, -\frac{1}{2}
+  \left[
+    \frac{2\kappa}{|\lambda|}
+    \left(
+      \frac{1}{\eps{\sigma}^2}+\frac{2}{\eps{\sigma}}
+      +\frac{\kappa}{3|\lambda|}\ln\eps{\sigma}
+    \right)+\mathcal S_B(z_\kappa)
+  \right]+\mathcal O(\eps{\sigma}),
+%   \\
+%   \left[
+%     \ln\mathcal A'^{(h)}
+%   \right]_{\eps{h}}
+%   & = -\frac{1}{2}
+%   \left[
+%     \left(
+%       \ln\frac{|\lambda|}{16\pi}
+%     \right)+4
+%     \left(
+%       \ln\frac{|\lambda|}{32\pi}
+%     \right)+\sum_{J=1}^{\infty}\frac{(2J+1)^2}{(1+\eps{h})^{2J}}
+%     \ln\frac{2J(2J-1)}{(2J+3)(2J+2)}
+%   \right]
+%   \nonumber \\
+%   & = -\frac{1}{2}
+%   \left[
+%     -6
+%     \left(
+%       \frac{1}{\eps{h}^2}+\frac{2}{\eps{h}}-\ln\eps{h}
+%     \right)\right.
+%   \nonumber \\
+%   & \left.\hspace{7ex}+\frac{3}{2}+6\gamma_E+12\ln A_G-5
+%     \ln\frac{\pi}{3}+5\ln\frac{|\lambda|}{8}
+%   \right]+\mathcal O(\eps{h}),
+  \\
+  \left[
+    \ln\mathcal A^{(\psi)}
+  \right]_{\eps{\psi}}
+  = &\, \sum_{J=0}^{\infty} \frac{(2J+1)(2J+2)}{(1+\eps{\psi})^{2J}}
+  \ln\left[
+    \frac{[\Gamma(2J+2)]^2}{\Gamma
+      \left(
+        2J+2-i\frac{y}{\sqrt{\lambda}}
+      \right)\Gamma
+      \left(
+        2J+2+i\frac{y}{\sqrt{\lambda}}
+      \right)}
+  \right]^2
+  \nonumber \\
+  = &\, \frac{y^2}{|\lambda|}
+  \left(
+    \frac{2}{\eps{\psi}^2}+\frac{5}{\eps{\psi}}
+    +\frac{1}{3}\frac{y^2+2|\lambda|}{|\lambda|}\ln\eps{\psi}
+  \right)+\mathcal S_F(z_y)+\mathcal O(\eps{\psi}).
+%   \\
+%   \left[
+%     \ln\mathcal A'^{(A_\mu^a,\varphi^a)}
+%   \right]_{\eps{A}}
+%   & = -\frac{1}{2}
+%   \left[
+%     \left(
+%       \ln\frac{|\lambda|}{16\pi J_G^2}
+%     \right)\right.
+%   \nonumber \\
+%   & \left.\hspace{7ex}+\sum_{J=1/2}^{\infty}\frac{(2J+1)^2}{(1+\eps{A})^{2J}}
+%     \ln\frac{J}{J+1}
+%     \left(
+%       \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}
+%     \right)^3\right]
+%   \nonumber \\
+%   & = -\frac{1}{2}
+%   \left[
+%     \left(
+%       \frac{6g^2}{|\lambda|}-2
+%     \right)
+%     \left(
+%       \frac{1}{\eps{A}^2}+\frac{2}{\eps{A}}
+%     \right)+
+%     \left(
+%       \frac{2}{3}+\frac{2g^4}{|\lambda|^2}
+%     \right)\ln\eps{A}\right.
+%   \nonumber \\
+%   & \left.\hspace{7ex}-\frac{3}{2}+\frac{2}{3}\gamma_E+4\ln A_G+
+%     \ln\frac{|\lambda|}{8\pi J_G^2}\right.
+%   \nonumber \\
+%   & \left.\hspace{7ex}+3\mathcal S_B(z_g)+3\ln\Gamma(1-z_g)\Gamma(2+z_g)
+%   \right] +\mathcal O(\eps{A}).
+\end{align}
+\rem{We should remove 1/2, with deviding the rest by 2.   
+We can eliminate the first line of each RHS.}
+In addition, define
+\begin{align}
+  \mathcal A^{(h)}
+  & = {\mathcal V}_{\rm 4D} \int d \ln \bar\phi_C
+  \left(
+    \frac{|\lambda|}{8}\bar\phi_C^2
+  \right)^2
+  \mathcal A'^{(h)},
+  \\
+  \mathcal A^{(A_\mu,\varphi)}
+  & = \int d\theta \mathcal A'^{(A_\mu,\varphi)}.
+\end{align}
+Then 
+\begin{align}
+  \left[
+    \ln\mathcal A'^{(h)}
+  \right]_{\eps{h}}
+  & = -\frac{1}{2}
+  \left[
+    \left(
+      \ln\frac{|\lambda|}{16\pi}
+    \right)+4
+    \left(
+      \ln\frac{|\lambda|}{32\pi}
+    \right)+\sum_{J=1}^{\infty}\frac{(2J+1)^2}{(1+\eps{h})^{2J}}
+    \ln\frac{2J(2J-1)}{(2J+3)(2J+2)}
+  \right]
+  \nonumber \\
+  & = -\frac{1}{2}
+  \left[
+    -6
+    \left(
+      \frac{1}{\eps{h}^2}+\frac{2}{\eps{h}}-\ln\eps{h}
+    \right)\right.
+  \nonumber \\
+  & \left.\hspace{7ex}+\frac{3}{2}+6\gamma_E+12\ln A_G-5
+    \ln\frac{\pi}{3}+5\ln\frac{|\lambda|}{8}
+  \right]+\mathcal O(\eps{h}),
+  \\
+  \left[
+    \ln\mathcal A'^{(A_\mu,\varphi)}
+  \right]_{\eps{A}}
+  & = -\frac{1}{2}
+  \left[
+    \left(
+      \ln\frac{|\lambda|}{16\pi J_G^2}
+    \right)\right.
+  \nonumber \\
+  & \left.\hspace{7ex}+\sum_{J=1/2}^{\infty}\frac{(2J+1)^2}{(1+\eps{A})^{2J}}
+    \ln\frac{J}{J+1}
+    \left(
+      \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}
+    \right)^3\right]
+  \nonumber \\
+  & = -\frac{1}{2}
+  \left[
+    \left(
+      \frac{6g^2}{|\lambda|}-2
+    \right)
+    \left(
+      \frac{1}{\eps{A}^2}+\frac{2}{\eps{A}}
+    \right)+
+    \left(
+      \frac{2}{3}+\frac{2g^4}{|\lambda|^2}
+    \right)\ln\eps{A}\right.
+  \nonumber \\
+  & \left.\hspace{7ex}-\frac{3}{2}+\frac{2}{3}\gamma_E+4\ln A_G+
+    \ln\frac{|\lambda|}{8\pi J_G^2}\right.
+  \nonumber \\
+  & \left.\hspace{7ex}+3\mathcal S_B(z_g)+3\ln\Gamma(1-z_g)\Gamma(2+z_g)
+  \right] +\mathcal O(\eps{A}).
+\end{align}
+
+\rem{Functions ${\cal S}_{B,F}$???.  We should remove the prefactor
+  $1/2$, with deviding the rest by $2$.}
+
+Next, we relate the above results with those based on dimensional
+regularizaton in $D$ dimension which contain the regularization
+parameter $\epsD$ defined as
+\begin{align}
+ \frac{1}{\epsD} = \frac{2}{4-D}+\ln4\pi-\gamma_E,
+\end{align}
+with $\gamma_E$ being the Euler's constant.  We convert the results
+based on two different regularizations by calculating the following
+quantity:
+\begin{align}
+ \left[\ln\mathcal A^{(X)}\right]_{\rm div}
+  & = w^{(X)}\tr
+ \left[
+  \left(
+   \widehat{\mathcal M}^{(X)}
+  \right)^{-1}\delta\mathcal M^{(X)}
+ \right]-\frac{w^{(X)}}{2}\tr
+ \left[
+  \left(
+   \widehat{\mathcal M}^{(X)}
+  \right)^{-1}\delta\mathcal M^{(X)}
+  \left(
+   \widehat{\mathcal M}^{(X)}
+  \right)^{-1}\delta\mathcal M^{(X)}
+ \right]\nonumber                         \\
+  & = w^{(X)}\sum_{J=0}^{\infty}n^{(X)}_J
+ \left[
+  \ln\frac{\det
+   \left[
+    \widehat{\mathcal M}^{(X)}_J+\delta\mathcal M_J^{(X)}
+   \right]}{\det \widehat{\mathcal M}^{(X)}_J}
+ \right]_{\mathcal O(\delta\mathcal M_J^2)}
+ \label{eq_deltaMExpansion}
+\end{align}
+where
+\begin{align}
+ \delta\mathcal M^{(X)} = \mathcal M^{(X)}-\widehat{\mathcal M}^{(X)},
+\end{align}
+and $\delta \mathcal M^{(X)}_J$ is defined similarly. Here,
+$[\cdots]_{\mathcal O(\delta)}$ indicates the expansion up to
+$\delta$. The most important point is that $\left[\ln\frac{\det\mathcal
+  M^{(X)}}{\det\widehat{\mathcal M}^{(X)}}\right]_{\rm div}$ has the same
+divergence as $\left[\ln\frac{\det\mathcal
+  M^{(X)}}{\det\widehat{\mathcal M}^{(X)}}\right]$ has when
+$\delta\mathcal M^{(X)}$ does not have a derivative operator.
+
+The first line of eq.~\eqref{eq_deltaMExpansion} can be calculated by
+directly evaluating the traces in a momentum space with using the
+dimensional regularization; the result is denoted as $\left[\ln
+  \mathcal A^{(X)}\right]_{{\rm div}, \epsD}$. 
+%Notice that
+%$\widehat{\mathcal M}^{(X)}$ is practically ${\rm
+%  diag}(-\partial^2,-\partial^2,\cdots)$, and thus we have a simple
+%Green's function.
+On the other hand, the second line of eq.~\eqref{eq_deltaMExpansion} can
+be evaluated as
+\begin{align}
+ \left[
+  \ln\frac{\det
+   \left[
+    \widehat{\mathcal M}^{(X)}_J+\delta\mathcal M_J^{(X)}
+   \right]}{\det \widehat{\mathcal M}^{(X)}_J}
+ \right]_{\mathcal O(\delta\mathcal M_J^2)}
+ = \tr
+ \left[
+  \hat\Psi^{-1}\Psi^{(1)}
+ \right]+\tr
+ \left[
+  \hat\Psi^{-1}\Psi^{(2)}
+ \right]-\frac{1}{2}\tr
+ \left[
+  \hat\Psi^{-1}\Psi^{(1)}\hat\Psi^{-1}\Psi^{(1)}
+ \right],
+ \label{eq_expansionEachJ}
+\end{align}
+where
+\begin{align}
+ \widehat{\mathcal M}^{(X)}_J\Psi^{(p)} = -\delta\mathcal M_J^{(X)}\Psi^{(p-1)},
+\end{align}
+for $p=1$ and $2$, and $\Psi^{(0)} = \hat\Psi$. Then, we calculate
+\begin{align}
+  \left[
+    \ln\mathcal A^{(X)}
+  \right]_{{\rm div}, \eps{X}}
+  \equiv w^{(X)}\sum_J\frac{n^{(X)}_J}{(1+\eps{X})^{2J}}
+  \left[
+    \ln\frac{\det\left[\widehat{\mathcal M}^{(X)}_J+\delta\mathcal M_J^{(X)}
+      \right]}{\det \widehat{\mathcal M}^{(X)}_J}
+  \right]_{\mathcal O(\delta\mathcal M_J^2)}.
+  \label{eq_regDiv}
+\end{align}
+
+We obtain the results based on the dimensional regularization by
+replacing
+\begin{align}
+  \left[
+    \ln\mathcal A^{(X)}
+  \right]_{{\rm div}, \eps{X}}
+  \rightarrow
+  \left[
+    \ln\mathcal A^{(X)}
+  \right]_{{\rm div}, \epsD}.
+\end{align}
+The expressions of $[\ln\mathcal A^{(X)}]_{{\rm div}, \eps{X}}$ and
+$[\ln\mathcal A^{(X)}]_{{\rm div}, \epsD}$ for the fields of our
+interest are given in Appendix \ref{apx_divpart}; the results are
+converted to those in the dimensional regularization by the following
+replacements:
+\begin{itemize}
+\item for the effect of the scalar field $\sigma$:
+  \begin{align}
+    \left(
+      \frac{1}{\eps{\sigma}^2}+\frac{2}{\eps{\sigma}}
+      +\frac{\kappa}{3|\lambda|}\ln\eps{\sigma}
+    \right)
+    \rightarrow
+    -1-\frac{\kappa}{3|\lambda|}
+    \left(
+      \frac{1}{2\epsD}+1+\gamma_E+\ln\frac{\mu R}{2}
+    \right),
+    \label{eq_ScalarRegulatorRel} 
+  \end{align}
+\item for the Higgs effect:
+  \begin{align}
+    \left(
+      \frac{1}{\eps{h}^2}+\frac{2}{\eps{h}}-\ln\eps{h}
+    \right)
+    \rightarrow
+    \frac{1}{2\epsD}+\gamma_E+\ln\frac{\mu R}{2}, \\
+  \end{align}
+\item for the effect of fermions:
+  \begin{align}
+    & \left(
+      \frac{2}{\eps{\psi}^2}+\frac{5}{\eps{\psi}}
+      +\frac{1}{3}\frac{y^2+2|\lambda|}{|\lambda|}\ln\eps{\psi}
+    \right)\nonumber                                                 \\
+    & \hspace{3ex}\to -\frac{y^2}{3|\lambda|}
+    \left(
+      \frac{1}{2\epsD}+1+\gamma_E+\ln\frac{\mu R}{2}
+    \right)-\frac{2}{3}
+    \left(
+      \frac{1}{2\epsD}+\frac{25}{4}+\gamma_E+\ln\frac{\mu R}{2}
+    \right),  
+  \end{align}
+\item for the effect of gauge and NG fields:
+  \begin{align}
+    & \left(
+      \frac{6g^2}{|\lambda|}-2
+    \right)
+    \left(
+      \frac{1}{\eps{A}^2}+\frac{2}{\eps{A}}
+    \right)+
+    \left(
+      \frac{2}{3}+\frac{2g^4}{|\lambda|^2}
+    \right)\ln\eps{A}\nonumber                                       \\
+    & \hspace{3ex}\to-2
+    \left(
+      \frac{1}{3}+\frac{2g^2}{|\lambda|}+\frac{g^4}{|\lambda|^2}
+    \right)
+    \left(
+      \frac{1}{2\epsD}+1+\gamma_E+\ln\frac{\mu R}{2}
+    \right)+2+2\frac{g^4}{|\lambda|^2}(10-\pi^2).
+  \end{align}
+\end{itemize}
+Subtracting $1/\epsD$, we get a renormalized prefactor in the
+$\msbar$-scheme.
+
+
+\subsection{Dilatational zero mode}
+
+In the calculation of the decay rate of the EW vacuum, we have an
+integral over $\bar\phi_C$ in association with the classical scale
+invariance, as we saw in eq.~\eqref{eq_dilatationalZeromode}.  So far,
+we have performed a one-loop calculation of the decay rate, based on
+which the decay rate behaves as
+\begin{align}
+  \gamma^{\rm (one\mathhyphen loop)}
+  \propto\int d\ln R
+%  \frac{( \mu R )^{-\frac{8\pi^2\beta_\lambda^{(1)}}{3|\lambda|^2}}}{R^4},
+  \frac{1}{R^4}
+  \exp \left[
+    - \frac{8\pi^2}{3|\lambda (\mu)|}
+    - \frac{8\pi^2 \beta_\lambda^{(1)}}{3|\lambda (\mu)|^2} \ln ( \mu R ) 
+  \right],
+  \label{gamma(1-loop)}
+\end{align}
+where $\beta_\lambda^{(1)}$ is the one-loop $\beta$ function of
+$\lambda$.  The integral does not converge.  
+
+We expect, however, that the integration may converge once higher
+order effects are properly included.  To see the detail of the path
+integral over the dilatational zero mode, let us denote the decay rate
+as
+\begin{align}
+  \gamma^{\rm (full)} = \int d\ln R
+  \frac{e^{-\mathcal B_{\rm eff}}}{R^4},
+\end{align}
+where $\mathcal{B}_{\rm eff}$ fully takes account of all the effects of higher
+order loops.
+
+In order to discuss how $\mathcal{B}_{\rm eff}$ should behave, it is instructive
+to rescale the coordinate variable as
+\begin{align}
+  \tilde x_\mu \equiv \sqrt{\frac{|\lambda|}{8}}\bar\phi_C x_\mu
+  = \frac{x_\mu}{R},
+\end{align}
+as well as the fields as
+\begin{align}
+  \tilde \Phi \equiv &\, \bar{\phi}_C^{-1} \Phi,
+  \\
+  \tilde \sigma \equiv &\, \bar{\phi}_C^{-1} \sigma,
+  \\
+  \tilde A_\mu \equiv &\, \bar{\phi}_C^{-1} A_\mu,
+  \\
+  \tilde{c} \equiv &\, \bar{\phi}_C^{-1} c,
+  \\
+  \tilde{\bar{c}} \equiv &\, \bar{\phi}_C^{-1} \bar{c},
+  \\
+  \tilde \psi \equiv &\,
+  \left(\frac{|\lambda|}{8}\right)^{-1/4} \bar\phi_C^{-3/2}
+  \psi.
+\end{align}
+Using the rescaled fields, all the explicit scales disappear from the
+action as a result of scale invariance:
+\begin{align}
+ \frac{1}{\hbar}
+ \int d^4 x {\cal L} = 
+ \frac{1}{\tilde{\hbar}}
+ \int d^4 \tilde{x} 
+ \tilde{\cal L}  \left(
+   \frac{\kappa}{|\lambda|}, 
+   \frac{y}{\sqrt{|\lambda|}},
+   \frac{g}{\sqrt{|\lambda|}}
+ \right),
+\end{align}
+where ${\cal L}$ is the total Lagrangian,
+\begin{align}
+ \tilde{\hbar} = \frac{|\lambda|}{8}\hbar,
+\end{align}
+and $\tilde{\cal L}$ includes canonically normalized rescaled fields
+and depends only on the combinations $\frac{\kappa}{|\lambda|}$,
+$\frac{y}{\sqrt{|\lambda|}}$ and $\frac{g}{\sqrt{|\lambda|}}$.  In
+addition, the rescaled bounce solution is given by
+\begin{align}
+ \frac{1}{1+\tilde x^2}.
+ \label{eq_rescaledBounce}
+\end{align}
+
+Based on $\tilde{\cal L}$ and $\tilde{\hbar}$, we expect:
+\begin{itemize}
+\item Only positive powers of $\frac{\kappa}{|\lambda|}$,
+  $\frac{y}{\sqrt{|\lambda|}}$ and $\frac{g}{\sqrt{|\lambda|}}$ appear
+  in the decay rate since there is no singularity when any of these
+  goes to zero.
+\item When we renormalize divergences using dimensional
+  regularization, we introduce a renormalization scale $\tilde\mu$.
+  It is always in a logarithmic function and is related to the
+  original renormalization scale as
+  \begin{align}
+    \tilde\mu = \mu R.
+  \end{align}
+\item In subtracting zero modes associated with transformations of
+  eq.~\eqref{eq_rescaledBounce}, the result should be again a
+  polynomial of $\frac{\kappa}{|\lambda|}$,
+  $\frac{y}{\sqrt{|\lambda|}}$ and
+  $\frac{g}{\sqrt{|\lambda|}}$. Notice that, for each zero mode, we
+  have $\sqrt{1/\tilde{\hbar}}$ since eq.~\eqref{eq_dzIntegral}
+  implies
+  \begin{align}
+    \frac{dc_0}{\sqrt{2\pi\tilde{\hbar}}\mathcal N_0}
+    = dz
+    \sqrt{\frac{\langle\tilde \fnc_0|\tilde \fnc_0\rangle}{2\pi\tilde{\hbar}}}.
+  \end{align}
+\item Quantum corrections have $\tilde{\hbar}^{\ell -1}$ at the
+  $\ell$-th loop since the loop expansion is equivalent to the
+  $\tilde{\hbar}$ expansion.
+\end{itemize}
+
+Based on the above arguments, 
+\begin{align}
+ \mathcal B_{\rm eff}
+  = 
+  \frac{8\pi^2}{3|\lambda (\mu)|}
+  + \frac{n_{\rm zero}}{2} \ln\frac{|\lambda (\mu)|}{8}
+  + \sum_{\ell =1}^{\infty}
+  \left(
+    \frac{|\lambda (\mu)|}{8}
+  \right)^{\ell-1}\mathcal P_\ell
+  \left(
+    \frac{\kappa (\mu)}{|\lambda (\mu)|},
+    \frac{y (\mu)}{\sqrt{|\lambda (\mu)|}},
+    \frac{g (\mu)}{\sqrt{|\lambda (\mu)|}},
+    \ln \mu R
+  \right),
+  \label{B_eff}
+\end{align}
+where $\mathcal P_\ell$ is the contribution at the $\ell$-loop level,
+and $n_{\rm zero}$ is the number of zero modes.
+
+If the effects of higher order loops are fully taken into account,
+$\mathcal{B}_{\rm eff}$ should be independent of $\mu$ because the decay
+rate is a physical quantity; in such a case, we may choose any value of
+the renormalization scale $\mu$.  In the perturbative calculation, the
+$\mu$-dependence cancells order-by-order \cite{Endo:2015ixx}; we can
+explicitly see the cancellation of the $\mu$-dependence at the
+leading-log level (see eq.\ \eqref{gamma(1-loop)}).  In our calculation
+so far, however, we only have the one-loop result in which $\mu$
+dependence remains.  As indicated in Eq.\ \eqref{B_eff}, the $\mu$
+dependence shows up in the form of $\ln^p \mu R$ with $p=1$, $2$,
+$\cdots$.  If $|\ln\mu R|\gg 1$, the logarithmic term from higher order
+loops may become comparable to the tree-level bounce action and the
+perturbative calculation breaks down.  In order to make our one-loop
+result reliable, we should take $\mu\sim O(1/R)$.  With such a choice of
+$\mu$ (as well as with the use of coupling constants evaluated at the
+renormalization scale $\mu$), the integration over the size of the
+bounce is dominated by the size with which $|\lambda (1/R)|$ becomes the
+largest.  In particular, in the case of the standard model, the
+integration over the size of the bounce converges with this prescription
+as we show in the following section.
+
+\subsection{Final result}
+
+Here, we summarize the results obtained in the previous subsections
+and appendices.  A decay rate with a resummation of the
+next-to-leading logarithmic terms is given by
+\begin{align}
+  \gamma = \int d\ln R \frac{1}{R^{4}}
+  \left[
+    \mathcal A'^{(h)}\mathcal A^{(\sigma)}\mathcal A^{(\psi)}
+    \mathcal A^{(A_\mu,\varphi)}e^{-\mathcal B}
+  \right]_{\msbar,~\mu\sim 1/R},
+\end{align}
+where
+\begin{align}
+  \left[
+    \ln\mathcal A'^{(h)}
+  \right]_{\msbar}
+  & = -\frac{1}{2}
+  \left[
+    \frac{3}{2}+12\ln A_G-5\ln\frac{\pi}{3}
+    +5\ln\frac{|\lambda|}{8}-6\ln\frac{\mu R}{2}
+  \right],
+  \label{A'^(h)}
+  \\
+  \left[
+    \ln\mathcal A^{(\sigma)}
+  \right]_{\msbar}
+  & = -\frac{1}{2}
+  \left[
+    \mathcal S_B(z_\kappa)-\frac{2\kappa}{|\lambda|}-\frac{2\kappa^2}{3|\lambda|^2}
+    \left(
+      1+\gamma_E+\ln\frac{\mu R}{2}
+    \right)
+  \right],                       \\
+  \left[
+    \ln\mathcal A^{(\psi)}
+  \right]_{\msbar}
+  & = -\frac{y^4}{3|\lambda|^2}
+  \left(
+    1+\gamma_E+\ln\frac{\mu R}{2}
+  \right)-\frac{2y^2}{3|\lambda|}
+  \left(
+    \frac{25}{4}+\gamma_E+\ln\frac{\mu R}{2}
+  \right)+\mathcal S_F(z_y),   \\
+  \left[
+    \ln\mathcal A^{(A_\mu,\varphi)}
+  \right]_{\msbar}
+  & = \ln\mathcal V_G+\sum_a
+  \left[
+    \ln\mathcal A'^{(A_\mu,\varphi)}
+  \right]_{\msbar},
+\end{align}
+with
+\begin{align}
+  \left[
+    \ln\mathcal A'^{(A_\mu,\varphi)}
+  \right]_{\msbar}
+  & = -\frac{1}{2}
+  \Bigg[
+  -2
+  \left(
+    \frac{1}{3}+\frac{2g^2}{|\lambda|}+\frac{g^4}{|\lambda|^2}
+  \right)
+  \left(
+    1+\gamma_E+\ln\frac{\mu R}{2}
+  \right)
+  \nonumber
+  \\ & 
+  +2\frac{g^4}{|\lambda|^2}(10-\pi^2)+\frac{1}{2}
+  +\frac{2}{3}\gamma_E+4\ln A_G+\ln\frac{|\lambda|}{8}-\ln\pi J_G^2
+  \nonumber
+  \\ & 
+  +3\mathcal S_B(z_g)+3\ln\Gamma(1-z_g)\Gamma(2+z_g)
+  \Bigg] .
+  \label{A'(A,NG)}
+\end{align}
+Here, $A_G$ is the Glaisher number and $\mathcal V_G$ is the volume of
+the group space generated by the broken generators.  The definitions
+of $\mathcal S_B(z)$, $\mathcal S_F(z)$ can be found in Appendix
+\ref{apx_infiniteSum}.  We emphasize that the final result does not
+depend on the gauge parameter, $\xi$, and hence our result is gauge
+invariant.
+
+%%%%%%%%%%%%%%%%%%%%
+%Standard Model
+\section{Standard Model}
+\label{sec_SM}
+\setcounter{equation}{0}
+
+\subsection{Decay rate}
+
+Now, we are at the position to discuss the decay rate of the EW vacuum
+in the SM.  As we have discussed, the decay of the EW vacuum is
+induced by the bounce configuration whose mass scale is much higher
+than the EW scale.  Thus, we approximate the Higgs potential as
+\begin{align}
+  V(H) = \lambda(H^\dagger H)^2,
+  \label{V(Phi)}
+\end{align}
+where $H= (H^+,H^0)$ is the Higgs doublet in the SM and $\lambda$ is
+the Higgs quartic coupling constant.  $\lambda$ depends on the
+renormalization scale $\mu$; in the SM, $\lambda$ becomes negative
+when $\mu$ is above $10^{10}$ GeV with the best-fit values of the SM
+parameters.  In addition, the relevant part of the Yukawa couplings
+are given by
+\begin{align}
+  \mathcal L_{\rm int} \ni
+  y_t H \bar{q}_L t_R^{c} + {\rm h.c.},
+\end{align}
+where $q_L$ and $t_R^c$ are left-handed 3rd generation quark doublet
+and right-handed anti-top quark, respectively, and $y_t$ is the top
+Yukawa coupling constant.
+
+Assuming that $\lambda<0$, the bounce solution for the SM is given by
+\begin{align}
+  H|_{\rm bounce} = \frac{1}{\sqrt{2}} e^{i\theta^a \sigma^a}
+  \begin{pmatrix}
+    0 \\
+    \bar\phi(r)
+  \end{pmatrix},
+\end{align}
+where the function $\bar\phi$ obeys Eq.\ \eqref{eq_Bounce}, and is
+given by Eq.\ \eqref{BounceSolution}.  In particular, remember that the
+bounce solution $\bar\phi$ contains a free parameter, which we choose
+$R$, because of the classical scale invariance.
+
+The results given in the previous section can be easily applied to the
+case of the SM.  Taking account of the effects of the (physical) Higgs
+boson, top quark, and weak bosons (as well as NG bosons),\footnote
+%%
+{We checked that the effect of the bottom quark is numerically
+  unimportant.}
+%%
+the decay rate of the EW vacuum in the SM can be written in the
+following form:\footnote
+%%
+{We checked that the analytic formulas given below give same results
+  as those in \cite{Chigusa:2017dux}, where numerical methods are used
+  to sum over the contributions from each $J$, if we take the same
+  renormalization scale $\mu$.}
+%%
+\begin{align}
+  \gamma = \int d \ln R
+  \frac{1}{R^4}
+  \left[
+    \mathcal A'^{(h)} \mathcal A^{(t)}
+    \mathcal A^{(W,Z,\varphi)}e^{-\mathcal B}
+  \right]_{\msbar}.
+\end{align}
+As we have mentioned, the relevant renormalization scale of the
+integrand is $\mu\sim O(1/R)$; in the following numerical analysis, we
+take $\mu=1/R$ unless otherwise stated.  If $\lambda(\mu)$ is
+positive, there is no bounce solution; the integrand is taken to be
+zero in such a case.  In addition, in order to be consistent with our
+procedure neglecting the mass term in the Higgs potential, $1/R$
+should be much larger than the EW scale.  This condition is
+automatically satisfied in the present analysis because $\lambda<0$
+occurs at the scale much higher than the electorweak scale.
+
+The Higgs contribution $A'^{(h)}$ is given in Eq.\ \eqref{A'^(h)},
+while the top-quark contributions is given by
+\begin{align}
+  \left[
+    \ln \mathcal A^{(t)}
+  \right]_{\msbar}
+  & = \left.3
+    \left[
+      \ln \mathcal A^{(\psi)}
+    \right]_{\msbar}
+  \right|_{y\to y_t},
+\end{align}
+where the factor of $3$ in the right-hand side is the color factor.
+
+One difference between the case of the $U(1)$ gauge symmetry and the
+SM case is the volume of the gauge space.  In the SM case, we may
+expand $H$ around the bounce solution with $\theta^a=0$ as
+\begin{align}
+  H = \frac{1}{\sqrt{2}}
+  \begin{pmatrix}
+    i (\varphi^1 -i \varphi^2)
+    \\
+    \bar\phi - i \varphi^3
+  \end{pmatrix}.
+\end{align}
+Here, $\varphi^1$ and $\varphi^2$ are NG bosons absorbed by charged
+$W$-bosons while $\varphi^3$ is that by $Z$-boson.  With the change of
+$\theta^a$, the NG modes are transformed as
+\begin{align}
+  \varphi^a \to 
+  \varphi^a + \theta^a \tilde{\fnc}_G Y_{0,0,0} + \mathcal O(\theta^2),
+\end{align}
+where
+\begin{align}
+  \tilde{\fnc}_G = \sqrt{2\pi^2}J_G\bar\phi,
+\end{align}
+with the Jacobian being given by $J_G=1$.\footnote
+%%
+{One may parameterize the bounce configuration using properly
+  normalized $SU(2)$ generator $T^a\equiv\sigma^a/2$ as 
+  \begin{align*}
+    H|_{\rm bounce} = \frac{1}{\sqrt{2}} e^{i\varphi^a T^a}
+    \begin{pmatrix}
+      0 \\
+      \bar\phi(r)
+    \end{pmatrix},
+  \end{align*}
+  with which $J_G=\frac{1}{2}$ and the volume of the gauge space is
+  \begin{align}
+    \int d^3 \vartheta = 16\pi^2.
+  \end{align}
+  The final result of the decay rate does not change for such a
+  convention.}
+%%
+The integration over the zero modes in association with
+the gauge transformation of the bounce solution can be replaced by the 
+integration over the parameter $\theta^a$:
+\begin{align}
+  \int d^3 \theta = 2\pi^2 \equiv {\cal V}_{SU(2)}.
+\end{align}
+Then, following the argument given in Appendix \ref{apx_zeromode}, the
+gauge contribution is evaluated as
+\begin{align}
+  \left[
+    \ln \mathcal A^{(W,Z,\varphi)}
+  \right]_{\msbar}
+  = &\, 
+  \ln\mathcal V_{SU(2)}
+  + 2
+  \left. 
+    \left[
+      \ln \mathcal A'^{(A_\mu,\varphi)}
+    \right]_{\msbar}
+  \right|_{g\to g_W}
+  + 
+  \left. 
+    \left[
+      \ln \mathcal A'^{(A_\mu,\varphi)}
+    \right]_{\msbar}
+  \right|_{g\to g_Z},
+\end{align}
+where $\mathcal A'^{(A_\mu,\varphi)}$ is given in Eq.\
+\eqref{A'(A,NG)}, and
+\begin{align}
+ g_W = \frac{g_2}{2},~
+ g_Z = \frac{\sqrt{g_Y^2+g_2^2}}{2}.
+\end{align}
+with $g_2$ and $g_Y$ being the gauge coupling constants of $SU(2)_L$
+and $U(1)_Y$, respectively.
+
+\subsection{Numerical results}
+
+Now, let us numerically evaluate the decay rate of the EW vacuum in
+the SM.\footnote
+%%
+{The analysis is basically the same as in \cite{Chigusa:2017dux}, but
+  we use analytic formulae and a different renormalization scale.}
+%%
+The decay rate of the EW vacuum is very sensitive to the coupling
+constants in the standard model.  In our numerical analysis, we
+evaluate them using \cite{Patrignani:2016xqp}:
+\begin{align}
+ m_h & = 125.09\pm0.24,   \\
+ m_t^{\rm (pole)} & = 173.1\pm0.6,     \\
+ \alpha_s (m_Z)  & = 0.1181\pm0.0011,
+\end{align}
+where $m_h$ and $m_t^{\rm (pole)}$ are Higgs mass and top mass,
+respectively, while $\alpha_s$ is the strong coupling constant.  The
+$SU(2)_L$ and $U(1)_Y$ gauge coupling constants are evaluated by using
+$\sin\theta_W=???$ and $\alpha_{\rm em} (m_Z)=???$, where $\theta_W$ is
+the Weinberg angle and $\alpha_{\rm em}$ is the fine structure constant.
+\rem{SC: According to \cite{Buttazzo:2013uya}, $g_2$ and $g_Y$ are
+determined at $\mu = m_t^{\rm pole}$ using $m_W^{\rm pole}$, $m_Z^{\rm
+pole}$, $m_h^{\rm pole}$, $m_t^{\rm pole}$, $G_\mu$, and $\alpha_s
+(m_Z^{\rm pole})$ as inputs.  Calculations are done in the on-shell
+scheme at NNLO precision.}
+
+First, we show the RG evolution of the SM coupling constants in fig.\
+\ref{fig_rge}. We use three-loop beta functions given in
+\cite{Buttazzo:2013uya} \rem{Maybe more refs????} and the central
+values for the SM parameters. The black dotted line indicates where
+$\bar\phi_C$ reaches the Planck scale $M_{\rm Pl}\simeq 2.4\times
+10^{18}\ {\rm GeV}$.  We also show the running above the Planck scale,
+assuming there are no significant corrections from gravity.\footnote
+%%
+{\rem{Comment on the effects of Planck suppressed operator, and
+    references (maybe a lot of).}
+  \cite{Burgess:2001tj,Branchina:2015nda,Branchina:2016bws,
+    Branchina:2014rva, Branchina:2014usa,Branchina:2013jra}}
+%%
+For $10^{10}\ {\rm GeV}\lesssim \mu \lesssim10^{30}\ {\rm GeV}$,
+$\lambda$ becomes negative; for such a region, we use a dashed line to
+indicate $\lambda<0$.
+
+In order to understand the $\mu$ dependence of $\lambda$, let us show
+one-loop RG equations of $\lambda$ and $y_t$ (although, in our
+numerical calculation, we use RG equations including two- and
+three-loop effects):
+\begin{align}
+ 16\pi^2\frac{d\lambda}{d\ln\mu}
+  & = 12\lambda
+ \left(
+  2\lambda+y_t^2-\frac{g_Y^2+g_2^2}{4}-\frac{g_2^2}{2}
+ \right)-6y_t^4+6
+ \left(
+  \frac{g_Y^2+g_2^2}{4}
+ \right)^2+12
+ \left(
+  \frac{g_2^2}{4}
+ \right)^2,     \\
+ 16\pi^2\frac{dy_t}{d\ln\mu}
+  & = y_t
+ \left(
+  \frac{9}{2}y_t^2-8g_3^2-\frac{9}{4}g_2^2-\frac{17}{12}g_Y^2
+ \right).
+\end{align}
+At a low energy scale, the term proportional to $y_t^4$ drives
+$\lambda$ to a negative value. As the scale increases, $y_t$ decreases
+while $g_Y$ increases, which brings $\lambda$ back to a positive
+value. Notice that $\lambda$ is bounded from below in the SM.
+
+\begin{figure}[t]
+ \begin{center}
+  \hspace{0.8ex}\includegraphics[width=0.6\linewidth]{rge.eps}
+  \includegraphics[width=0.625\linewidth]{lngam.eps}
+\end{center}
+\caption{{\it Top}: The RG evolution of the relevant SM coupling
+  constants as a function of $1/R$ (with $R$ being in units of ${\rm
+    GeV}^{-1}$), taking $\mu=1/R$.  The dashed line indicates
+  $\lambda<0$. The black dotted line shows the scale where
+  $\bar\phi_C=M_{\rm Pl}$. The horizontal axis is common with the
+  bottom panel. {\it Bottom}: The integrand of the decay rate. We use
+  the central values for the SM parameters. In the shaded region,
+  $\lambda$ is positive and the integrand is zero.  \rem{From the
+    $x$-label, remove $\ln\mu$!!!}  \rem{SC: I prefer the $y$-label $\ln
+ \frac{d \gamma}{d \ln R}$.}}
+ \label{fig_rge}
+\end{figure}
+
+We show the integrand of $\gamma$ in the bottom panel of fig.\
+\ref{fig_rge}, together with that of
+\begin{align}
+ \gamma_{\rm tree} = \int d \ln R \frac{1}{R^4} e^{-\mathcal B}.
+ \label{eq_treelevel}
+\end{align}
+They are also shown in a linear scale in the top panel of fig.\
+\ref{fig_dgamma}.
+
+There are some remarks on the integral over $R$.
+\begin{itemize}
+\item As indicated by the top panel of fig.\ \ref{fig_dgamma}, the
+  integral is dominated by the scale $10^{17}~{\rm
+    GeV}\lesssim1/R<10^{18}~{\rm GeV}$, corresponding to $10^{18}~{\rm
+    GeV}\lesssim\bar\phi_C<10^{19}~{\rm GeV}$, which is close to the
+  Planck scale.  We may formally perform the $R$-integration up to the
+  scale where $\lambda$ becomes positive again; result of such an
+  analysis is denoted as $\gamma_\infty$.  Otherwise, we may stop the
+  integration at $\bar{\phi}_C\sim M_{\rm Pl}$, expecting that the SM
+  breaks down at the Planck scale due to an effect of quantum gravity;
+  we also perform such an calculation terminating the integral at
+  $\bar{\phi}_C=M_{\rm Pl}$, assuming that the bounce solution is
+  unaffected by the effect of quantum gravity, and the result is
+  denoted as $\gamma_{\rm Pl}$.
+
+\item As one can see in the bottom panel of fig.\ref{fig_rge}, there
+  is an artificial divergence of the integrand at $1/R\simeq10^{10}\
+  {\rm GeV}$.  This is due to a breakdown of perturbative expansion
+  owing to too small $|\lambda|$, which makes the one-loop effect
+  larger than the tree-level one.  We expect that the effect of such a
+  bounce configuration is unimportant because the bounce action for
+  such a small $|\lambda|$ is significantly suppressed.  Thus, we
+  exclude such a region from the integration over $R$.  In our
+  numerical calculation, we integrate over $R$ only in the region such
+  that $\left|\frac{\delta\mathcal B_{\rm eff}^{(1)}}{\mathcal B}\right|
+      <0.8$ and $\left|\frac{[\ln \mathcal A^{(X)}]_{\rm
+      \overline{MS}}}{\mathcal B}\right| <0.8$ for each $X$, where
+      $\delta \mathcal B_{\rm eff}^{(1)}$ is the one-loop contribution
+      to $\mathcal{B}_{\rm eff}$, while $[\ln \mathcal A^{(X)}]_{\rm
+      \overline{MS}}$ is a contribution from particle $X$.  \rem{Second
+      condition???? zero-mode????}
+
+\end{itemize}
+
+% Notice that, since we directly integrate the direction of dilatation,
+% instead of the saddle point approximation, it does not matter if there
+% is no maximum of the integrand in the region of integration. When the
+% maximum is outside of the region, what we obtain is a lower limit of the
+% decay rate since the integrand is positive definite.
+
+By numerically integrating over $R$, we obtain\footnote
+%%
+{If we use $\mu=\bar\phi_C$ instead of $1/R$, the decay rate is given
+  by $\log_{10}\left[\gamma\times{\rm Gyr~Gpc^3}\right]=-554$,
+  reproducing the result of \cite{Chigusa:2017dux}.}
+%%
+\begin{align}
+  \log_{10}\left[\gamma_{\rm Pl}\times{\rm Gyr~Gpc^3}\right]
+  & = -564^{+38~+177~+139~+2}_{-43~-312~-208~-2}, \\
+  \log_{10}\left[\gamma_{\infty}\times{\rm Gyr~Gpc^3}\right]
+  & = -563^{+38~+177~+139~+1}_{-43~-313~-209~-3},
+\end{align}
+where the 1st, 2nd, 3rd, and 4th errors are due to the Higgs mass, the
+top mass, the strong coupling constant, and the renormalization scale,
+respectively.  (In order to estimate the uncertainty due to the choice
+of the renormalization scale, we vary the renormalization scale from
+$1/(2R)$ to $2/R$.)  Since $H_0^{-4}\simeq10^3{\rm Gyr~Gpc^3}$, the
+lifetime of the EW vacuum within our Hubble volume is much longer than
+the age of the universe. 
+
+\begin{figure}[t]
+ \begin{center}
+  \hspace{1.6ex}\includegraphics[width=0.6\linewidth]{gam.eps}
+  \includegraphics[width=0.6485\linewidth]{lnA.eps}
+ \end{center}
+ \caption{{\it Top}: The integrand of the decay rate with the central SM
+   parameters. The solid line corresponds to a result at the one-loop
+   level and the dashed one corresponds to that at the tree level. The
+   horizontal axis is common with the bottom figure. We show $\bar\phi_C
+   = M_{\rm Pl}$ with the vertical dotted line.  \rem{SC: I prefer the
+   $y$-label $\frac{d \gamma}{d \ln R}$.}  {\it Bottom}: The size of
+   each quantum correction. The dashed line corresponds to
+   $\delta\mathcal B^{(1)}_{\rm eff}$.}  \label{fig_dgamma}
+\end{figure}
+
+In fig.\ \ref{fig_SMconst}, we show the decay rate in $m_h$ vs.\
+$m_t$ plane.  In the red region, $\gamma$ becomes larger than $H_0^4$,
+which we call unstable region.  In the yellow region, the EW vacuum is
+metastable, meaning that $0<\gamma<H_0^4$.  In the green region, the
+EW vacuum is absolutely stable because $\lambda$ is always positive.
+The dashed, solid, and dotted lines correspond to $\alpha_s =
+0.1192,~0.1181$, and $0.1170$, respectively. The red
+contours show $\ln\left[\gamma\times{\rm Gyr~Gpc^3}\right]=-100$,
+$-300$, and $-1000$ with the central value of $\alpha_s$.  \rem{Make
+  the contour black!!!}  We also show $1\sigma,$ $2\sigma$ and
+$3\sigma$ constraints on the Higgs mass and the top quark mass with
+the blue regions, adding their errors in quadrature.
+
+\rem{TM: I could not understand what the following paragraph
+  means?????}
+
+We cut-off the integral at $\bar\phi_C = M_{\rm Pl}$, but it does not
+change the figure since the maximum is not so far from the Planck
+scale.\footnote
+%%
+{Even with a lower cut-off such as $\bar\phi_C=0.1M_{\rm Pl}$, the
+  result does not change significantly.}
+%%
+The value of $\bar\phi_C$ at the maximum of the integrand ranges from
+$10^{18}$ GeV to $10^{20}$ GeV in the figure.
+
+For comparison, we also perform a ``tree-level'' calculation of the
+decay rate using eq.~\eqref{eq_treelevel}.  The results are
+$\log_{10}\left[\gamma_{\rm Pl}^{\rm (tree)}\times{\rm Gyr~Gpc^3}\right]
+= -573$ and $\log_{10}\left[\gamma_{\infty}^{\rm (tree)}\times{\rm
+Gyr~Gpc^3}\right] = -570$.  Thus, the difference between $\gamma$ and
+$\gamma^{\rm (tree)}$ turns out to be rather small.  This is a
+consequence of an accidental cancellation among the contributions of
+several fields.  In the bottom panel of fig.\ \ref{fig_dgamma}, we show
+individual quantum corrections separately, as well as the total one-loop
+contribution.  We can see that a significant cancellaton among the
+quantum corrections occurs around $10^{17}~{\rm
+GeV}\lesssim1/R<10^{18}~{\rm GeV}$.  We have also checked that the
+unstable region on the $m_h$ vs.\ $m_t$ plane shifts upward by $\Delta
+m_t\simeq0.25\ {\rm GeV}$ if we use $\gamma^{\rm (tree)}$.
+
+\begin{figure}[t]
+ \begin{center}
+  \includegraphics[width=0.5\linewidth]{sm.eps}
+ \end{center}
+ \caption{The stability of the EW vacuum in the SM with a cut-off of the
+ integration at $\bar\phi_C=M_{\rm Pl}$. The red region is unstable, the
+ yellow region is meta-stable, and the green region is absolutely
+ stable. The dashed, solid, and dotted lines correspond to $\alpha_s =
+ 0.1192,~0.1181$, and $0.1170$, respectively. The red
+ contours indicate $\ln\left[\gamma\times{\rm
+   Gyr~Gpc^3}\right]=-100,-300$, and $-1000$ with the central value of
+ $\alpha_s$. The blue circles indicate $1\sigma,~2\sigma$ and $3\sigma$
+ constraints on the Higgs and the top quark masses, with an assumption
+ of Gaussian distribution for errors.}  \label{fig_SMconst}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%
+%extra matter
+\section{Models with Extra Fermions}
+\label{sec_extra}
+\setcounter{equation}{0}
+
+In this section, we consider extensions of the SM with introducing
+extra fermions.
+
+\rem{Motivation: PQ, seesaw, other new physics???}
+
+
+We perform the RG analysis of the runnings of coupling constants with
+including the effects of extra fermions.  We include two-loop effects of
+extra fermions into the $\beta$-functions, which can be calculated using
+the result in \cite{Luo:2002ti}.  We also take account of one-loop
+threshold corrections due to the extra fermions, which are summarized in
+Appendix \ref{apx_threshold}.\footnote
+%%
+{If we use the two-loop beta functions instead of three-loop ones in the
+  SM calculation, the difference of $\log_{10}\left[\gamma\times{\rm
+  Gyr~Gpc^3}\right]$ is around 40. Thus, the systematic error of
+  neglecting three-loop effects of the extra fermions is expected to be
+  similar or less.}
+%%
+For the integration over $R$, we follow the procedure in the SM case,
+as well as the following treatments:
+\begin{itemize}
+\item We terminate the integration if any of the coupling constants
+  (in particular, Yukawa coupling constants of extra particles)
+  exceeds $\sqrt{4\pi}$ since the RG evolution is not reliable above
+  such a scale.  \rem{Which region of the figure???  Comment that the
+    model is excluded before Yukawa becomes so large????}
+\item In order to maintain the classical scale invariance at a good
+  accuracy, we require $1/R>10M_{\rm ex}$, where $M_{\rm ex}$ is the
+  mass scale of the new particles.
+\end{itemize}
+
+\subsection{Vector-like fermions}
+
+Here, we consider two examples of vector-like fermions, one is colored
+vector-like fermions and the other is non-colored ones. For simplicity,
+we assume that the extra fermions have a Yukawa coupling with the SM
+Higgs boson.  \rem{SC: What is ``For simplicity'' ??}  (We also assume
+that the mixing between the extra fermions and the SM fermions is
+negligible.)  Since the additional Yukawa couplings tends to drive
+$\lambda$ to a negative value, the decay rate of the EW vacuum typically
+becomes larger than that in the SM. It also shifts higher the scale that
+minimizes $\lambda$.
+
+We first discuss the colored vector-like fermions, having the same SM
+gauge quantum numbers as left-handed quark doublet and right-handed
+down quark, as well as their vector-like partners; we add
+$Q_{\rm ex}$ $({\bf 3}, {\bf 2},\frac{1}{6})$, 
+$\overline{Q}_{\rm ex}$ $(\bar{\bf 3}, {\bf 2},-\frac{1}{6})$, 
+$D_{\rm ex}$ $({\bf 3}, {\bf 1},-\frac{1}{3})$, and
+$\overline{D}_{\rm ex}$ $(\bar{\bf 3}, {\bf 1},\frac{1}{3})$. 
+(In the parenthesis, we show the quantum numbers of $SU(3)_C$,
+$SU(2)_L$, and $U(1)_Y$.)   The Lagrangian is given by
+\begin{align}
+  \mathcal L = \mathcal L_{\rm SM}
+  +Y_{\rm ex}\Phi^* Q_{\rm ex}\overline{D}_{\rm ex}
+  +\overline{Y}_{\rm ex}\Phi\overline{Q}_{\rm ex}D_{\rm ex}
+  +M_{\rm ex}\overline{Q}_{\rm ex}Q_{\rm ex}
+  +M_{\rm ex}\overline{D}_{\rm ex}D_{\rm ex},
+\end{align}
+where $M_{\rm ex}$ is the mass parameter of the extra fermions; for
+simplicity, we assume that the mass is universal for extra fermions.
+In addition, $Y_{\rm ex}$ and $\overline{Y}_{\rm ex}$ are new Yukawa
+coupling constants.  We take these new parameters real and positive.
+We set renormalization conditions as
+\begin{align}
+  Y_{\rm ex}|_{\mu=M_{\rm ex}}
+  = \overline{Y}_{\rm ex}|_{\mu=M_{\rm ex}}
+  \equiv y_{\rm ex}.
+  \label{eq_RGEboundary}
+\end{align}
+
+\rem{TM: I prefer to use $Y_D$ or $Y_D^{\rm (extra)}$ instead of
+  $Y_{ex}$ here, and $Y_E^{\rm (extra)}$ in the next example.  Same
+  for the mass parameter.}
+
+The calculation of the decay rate is parallel to the SM case, and the
+decay rate is given in the following form:
+\begin{align}
+ \gamma = \int d\ln R \frac{1}{R^4}
+ \left[
+  \mathcal A'^{(h)}\mathcal A^{(t)}\mathcal A^{(A_\mu,\varphi)}
+  \mathcal A^{(Q_{\rm ex},\overline{D}_{\rm ex})}
+  \mathcal A^{(\overline{Q}_{\rm ex},D_{\rm ex})}
+  e^{-\mathcal B}
+ \right]_{\msbar,~\mu=1/R},
+\end{align}
+where $\mathcal A^{(Q_{\rm ex},\overline{D}_{\rm ex})}$ and $\mathcal
+A^{(\overline{Q}_{\rm ex},D_{\rm ex})}$ are effects of the extra
+fermions on the prefactor:
+\begin{align}
+ \left[
+  \ln \mathcal A^{(Q_{\rm ex},\overline{D}_{\rm ex})}
+ \right]_{\msbar}
+  & = \left.3
+ \left[
+  \ln \mathcal A^{(\psi)}
+ \right]_{\msbar}
+ \right|_{y\to Y_{\rm ex}}, \\
+ \left[
+  \ln \mathcal A^{(\overline{Q}_{\rm ex},D_{\rm ex})}
+ \right]_{\msbar}
+  & = \left.3
+ \left[
+  \ln \mathcal A^{(\psi)}
+ \right]_{\msbar}
+ \right|_{y\to \overline Y_{\rm ex}}.
+\end{align}
+
+In fig.\ \ref{fig_VLQ}, we show the contours of the constant decay rate
+on $M_{\rm ex}$ vs.\ $y_{\rm ex}$ plane.  Here, we use the central
+values of the SM parameters. The meanings of the shading colors are the
+same as in the SM case. The left and the right panels show the results
+with and without imposing the condition $\bar{\phi}_C<M_{\rm Pl}$ in
+integrating over $R$. As we can see, the effect of such a cut-off is
+significant. This is because $\bar\phi_C$ at the maximum of the
+integrand, $\bar\phi_C^{\max}$, may become much larger than the Planck
+scale in the case with extra fermons, as indicated in the left panel of
+fig.\ \ref{fig_cutoffVLF}. To illustrate the cut-off dependence of the
+decay rate, we show the constraint with terminating the integration at
+$\bar\phi_C=0.1M_{\rm Pl}$ in the left panel (dashed line).  In
+addition, when $y_{\rm ex}$ and $M_{\rm ex}$ are small, we have a region
+of absolute stability. This is because the addition of colored particles
+makes the strong coupling constant larger than the SM case. It rapidly
+drives $y_t$ to a small value, which makes $\lambda$ always positive.
+Requiring that the lifetime of the EW vacuum should be longer than the
+age of the universe, we obtain $y_{\rm ex}\lesssim0.4-0.5$ for
+$10^3~{\rm GeV}\lesssim M_{\rm ex}\lesssim10^{15}~{\rm GeV}$.
+
+\begin{figure}[t]
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{VLQ_C.eps}
+  \end{center}
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{VLQ.eps}
+  \end{center}
+ \end{minipage}
+ \caption{The decay rate of the EW vacuum for vector-like quarks with
+ (left) and without (right) the cut-off at the Planck scale. The solid
+ lines show $\log_{10}[\gamma~{\rm Gyr}~{\rm
+ Gpc}^3]=-250,-500$, and $-1000$. The dashed line corresponds to the constraint
+ when we stop the integration at $\bar\phi_C=0.1M_{\rm Pl}$.}
+ \label{fig_VLQ}
+\end{figure}
+
+The second example is non-colored extra fermions, having the same SM quantum
+numbers as leptons.
+We introduce
+$L_{\rm ex}$ $({\bf 1}, {\bf 2},-\frac{1}{2})$, 
+$\overline{L}_{\rm ex}$ $({\bf 1}, {\bf 2},\frac{1}{2})$, 
+$E_{\rm ex}$ $({\bf 1}, {\bf 1},-1)$, and
+$\overline{E}_{\rm ex}$ $({\bf 1}, {\bf 1},1)$, and the Lagrangian is
+given by
+\begin{align}
+ \mathcal L = \mathcal L_{\rm SM}
+ +Y_{\rm ex}\Phi^* L_{\rm ex}\overline{E}_{\rm ex}
+ +\overline{Y}_{\rm ex}\Phi\overline{L}_{\rm ex}E_{\rm ex}
+ +M_{\rm ex}\overline{L}_{\rm ex}L_{\rm ex}
+ +M_{\rm ex}\overline{E}_{\rm ex}E_{\rm ex}.
+\end{align}
+We adopt the following renormalization conditions
+\begin{align}
+  Y_{\rm ex}|_{\mu=M_{\rm ex}}
+  = \overline{Y}_{\rm ex}|_{\mu=M_{\rm ex}}
+  \equiv y_{\rm ex}.
+  \label{eq_RGEboundary}
+\end{align}
+The decay rate of the EW vacuum is given by
+\begin{align}
+  \gamma = \int d(\ln R)\frac{1}{R^4}
+  \left[
+    \mathcal A'^{(h)}\mathcal A^{(t)}\mathcal A^{(A_\mu,\varphi)}
+    \mathcal A^{(L_{\rm ex},\overline{E}_{\rm ex})}
+    \mathcal A^{(\overline{L}_{\rm ex},E_{\rm ex})}
+    e^{-\mathcal B}
+  \right]_{\msbar,~\mu=1/R},
+\end{align}
+where
+\begin{align}
+  \left[
+    \ln \mathcal A^{(L_{\rm ex},\overline{E}_{\rm ex})}
+  \right]_{\msbar}
+  & = \left.
+    \left[
+      \ln \mathcal A^{(\psi)}
+    \right]_{\msbar}
+  \right|_{y\to Y_{\rm ex}}, \\
+  \left[
+    \ln \mathcal A^{(\overline{L}_{\rm ex},E_{\rm ex})}
+  \right]_{\msbar}
+  & = \left.
+    \left[
+      \ln \mathcal A^{(\psi)}
+    \right]_{\msbar}
+  \right|_{y\to \overline Y_{\rm ex}}.
+\end{align}
+
+In fig.\ \ref{fig_VLL}, we show the contours of constant decay
+rate. Since the extra fermions are not colored, we do not have an
+absolutely stable parameter region. We observe a larger effect of the
+cut-off at the Planck scale. This is because $\bar\phi_C^{\max}$ is
+typically large in a wider parameter space, as indicated in the right
+panel of fig.\ \ref{fig_cutoffVLF}.
+
+Requiring that the lifetime of the EW vacuum should be longer than the
+age of the universe, we obtain $y_{\rm ex}\lesssim0.4-0.7$ for
+$10^3~{\rm GeV}\lesssim M_{\rm ex}\lesssim10^{15}~{\rm GeV}$. The
+constraint becomes significantly weaker for larger $M_{\rm ex}$ owing to
+the cut-off at the Planck scale.
+
+\begin{figure}[t]
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{VLL_C.eps}
+  \end{center}
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{VLL.eps}
+  \end{center}
+ \end{minipage}
+ \caption{The same figure as fig.\ \ref{fig_VLQ} but for vector-like
+  leptons.}  \label{fig_VLL}
+\end{figure}
+
+\begin{figure}[t]
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{VLQ_max.eps}
+  \end{center}
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{VLL_max.eps}
+  \end{center}
+ \end{minipage}
+ \caption{The value of $\bar\phi_C$ at the maximum of the integrand,
+ $\bar\phi_C^{\max}$. The left panel is for vector-like quarks and the
+ right is for vector-like leptons. The numbers in the legends indicate
+ $\log_{10}[\bar\phi_C^{\max}/{\rm GeV}]$. In the gray region, the EW
+ vacuum is absolutely stable.  \rem{SC: The gradation in the upper half
+ part of each figure is due to the termination of $R$ integration before
+ $\bar{\phi}_C \sim 10^{35}\ {\rm GeV}$, I guess??  It might be
+ confusing but we can leave some comments here.}}  \label{fig_cutoffVLF}
+\end{figure}
+
+
+\subsection{Right-handed neutrino}
+
+Next, we consider the case with right-handed neutrinos which is
+responsible for the active neutrino masses via the seesaw mechanism
+\cite{??????}.  For simplicity, we concentrate on the case where only
+one mass eigenstate of the right-handed neutrinos, denoted as $N_R$,
+strongly couples to the Higgs boson (as well as to the third generation
+lepton doublet).  Then, the Lagrangian is given by
+\begin{align}
+  \mathcal L = \mathcal L_{\rm SM}
+  +Y_N\Phi^* L_3 \overline{N}_R
+  +\frac{1}{2}M_N\overline{N}_RN_R,
+\end{align}
+where, in this subsection, $L_3$ denotes the third generation lepton
+doublet. We define
+\begin{align}
+  Y_N|_{\mu=M_N} \equiv y_{\rm ex}.
+  \label{eq_RGEboundary}
+\end{align}
+
+Assuming that, for simplicity, the neutrino Yukawa matrix is diagonal
+in the mass-basis of right-handed neutrinos, the following effective
+operator shows up by integrating out $N_R$:
+\begin{align}
+ \Delta\mathcal L = \frac{C}{4}(\Phi L_3)^2,
+\end{align}
+with
+\begin{align}
+  C(M_N) = -2\frac{y_N^2}{M_N}.
+\end{align}
+One of the active neutrino masses is related to the value of $C$ at
+the EW scale as
+\begin{align}
+  m_\nu = C(m_t)\frac{v^2}{4},
+\end{align}
+with $v\simeq 246\ {\rm GeV}$ is the vacuum expectation value of the
+Higgs boson.  In our numerial calculation, we use the following
+one-loop RGE \cite{Chankowski:1993tx}
+\begin{align}
+  16\pi^2\frac{d}{d\ln\mu}C = \left(4\lambda-6y_t^2-3g_2^2\right)C.
+\end{align}
+to estimate the neutrino mass.
+
+In the SM with right-handed neutrinos, the decay rate of the EW vacuum
+is evaluated as
+\begin{align}
+ \gamma = \int d(\ln R)\frac{1}{R^4}
+ \left[
+  \mathcal A'^{(h)}\mathcal A^{(t)}\mathcal A^{(A_\mu,\varphi)}
+  \mathcal A^{(L,N_R)}e^{-\mathcal B}
+ \right]_{\msbar,~\mu=1/R}.
+\end{align}
+where
+\begin{align}
+ \left[
+  \ln \mathcal A^{(L,N_R)}
+ \right]_{\msbar}
+  & = \left.
+ \left[
+  \ln \mathcal A^{(\psi)}
+ \right]_{\msbar}
+ \right|_{y\to Y_{N}}.
+\end{align}
+In fig.\ \ref{fig_RN}, we show the contour plots of the decay
+rate. Since it does not have any SM charges, the decay rate goes to
+the SM value when $y_N$ goes to zero.  The effect of the cut-off at
+the Planck scale is again large, which is because of a large
+$\bar\phi_C^{\max}$ as shown in fig.\ \ref{fig_cutoffRHN}.  The purple
+solid lines show the left-handed neutrino mass.  Requiring that the
+decay rate should be smaller than the age of the universe, we obtain
+$y_{\rm ex}\lesssim0.7-0.8$ for $10^{12}~{\rm GeV}\lesssim m_{\rm
+  ex}\lesssim10^{15}~{\rm GeV}$.
+
+\begin{figure}[t]
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{RHN_C.eps}
+  \end{center}
+ \end{minipage}
+ \begin{minipage}{0.49\linewidth}
+  \begin{center}
+   \includegraphics[width=\linewidth]{RHN.eps}
+  \end{center}
+ \end{minipage}
+ \caption{The same figure as fig.\ \ref{fig_VLQ} but for a right-handed
+  neutrino. We also show lines indicating $m_\nu=0.05$ eV and
+  $m_\nu=0.08$ eV with purple solid lines.}  \label{fig_RN}
+\end{figure}
+
+\begin{figure}[t]
+ \begin{center}
+  \includegraphics[width=0.5\linewidth]{RHN_max.eps}
+ \end{center}
+ \caption{The same figure as fig.\ \ref{fig_cutoffVLF} but for a
+   right-handed neutrino. \rem{SC: I want the same figure without $*.5$
+ on the x-axis.} }  \label{fig_cutoffRHN}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%
+%Conclusion
+\section{Conclusion}
+\label{sec_conclusion}
+\setcounter{equation}{0}
+
+\rem{TM: I will check this section after everything will be fixed.}
+
+In this paper, we have evaluated vacuum decay rates for the SM and
+various models beyond, with including the complete one-loop corrections
+and a resummation of next-to-leading logarithmic terms. In particular, we
+have considered models with extra fermions. Since they typically make
+the EW vacuum unstable, the constraints on their masses and couplings
+are phenomenologically important. We have also presented a complete set
+of analytic formulae, which can be applied to any model that exhibits
+classical conformality at a high energy scale. Together with Appendix
+\ref{apx_recipe}, we can evaluate the decay rate almost instantaneously.
+
+We used a recently developed technique to calculate functional
+determinants in a gauge sector, which not only gives a prescription to
+integrate gauge zero modes but also allows us to calculate the
+determinants analytically. We have obtained a manifestly gauge invariant
+result, starting with a Lagrangian that includes a gauge parameter.
+
+To sum up all the effects of bounce solutions with different sizes, one
+needs to go beyond the one-loop level, otherwise the decay rate would
+become infinite. To improve the result, we resummed the next-to-leading
+logarithmic terms using the RG evolution of the couplings. There, we
+have found that an appropriate renormalization scale for the resummation
+is given by a typical spacial size of a bounce solution.
+
+In the calculation of the decay rate in the SM, we have found that the
+field value of the bounce reaches the Planck scale at where
+$d\gamma/d(\ln R)$ is maximized. We put a cut-off of the integration so
+that the field value does not exceed the Planck scale since we expect
+non-negligible corrections from gravity. Then, the result should be
+understood as a lower bound on the decay rate. We have obtained
+\begin{align}
+ \log_{10}\left[\gamma_{\rm Pl}\times{\rm Gyr~Gpc^3}\right]
+  & = -564^{+38~+177~+139~+2}_{-43~-312~-208~-2},
+\end{align}
+where the errors come from the Higgs mass, the top mass, the strong
+coupling constant, and the renormalization scale, respectively. The
+effect of the cut-off is turned out to be smaller than that of the
+renormalization scale. Since $H_0^{-4}\simeq10^3~{\rm Gyr~Gpc^3}$, the
+lifetime is long enough compared with the age of the universe.
+
+We have analyzed the decay rate for extensions of the SM with extra
+fermions; (i) vector-like quarks, (ii) vector-like leptons, and (iii) a
+right-handed neutrino.  We have obtained a constraint on the parameter
+space for each model, requiring that the lifetime of the EW vacuum is
+longer than the age of the universe. The results constrain the Yukawa
+couplings that are larger than about $0.4-0.5$ if we do not consider the
+cut-off at the Planck scale. The effect of the cut-off was found to be
+rather large and the constraints on the Yukawa couplings become weaker,
+at most, by $0.3$ after including the cut-off.
+
+\section*{Acknowledgements}
+ This work was supported by the Grant-in-Aid for Scientific Research C
+ (No.26400239), and Innovative Areas (No.16H06490). The work of S.C. was
+ also supported in part by the Program for Learning Graduate Schools,
+ MEXT, Japan.
+
+%Appendix
+
+\appendix
+%%%%%%%%%%%%%%%%%%%%
+%Functional determinants
+\section{Functional Determinant}
+\label{apx_determinantJ}
+\setcounter{equation}{0}
+
+In this appendix, we present explicit forms of functional determinants
+for various fields and evaluate them analytically.  For simplicity, we
+consider the case with $U(1)$ gauge interaction; the charge of the
+scalar field $\Phi$ responsible for the vacuum instability is taken to
+be $+1$.  The potential of $\Phi$ is given by
+\begin{align}
+  V(\Phi) = \lambda(\Phi^\dagger\Phi)^2,
+\end{align}
+with $\lambda<0$.
+
+\subsection{Scalar contribution}
+
+We consider a real scalar field, $\sigma$, which couples to the Higgs
+field as
+\begin{align}
+  V=\kappa\sigma^2\Phi^\dagger\Phi,
+\end{align}
+where $\kappa$ is a positive coupling constant.  The contribution to the
+prefactor is given by
+\begin{align}
+  \ln\mathcal A^{(\sigma)}
+  = -\frac{1}{2}\ln\frac{\det[-\partial^2+\kappa\bar\phi^2]}{\det[-\partial^2]}.
+\end{align}
+
+First, we expand $\sigma$ into partial waves;
+\begin{align}
+  \sigma(r,\Omega) = \sigma^{J,m_A,m_B}(r)Y_{J,m_A,m_B}(\Omega),
+\end{align}
+where $Y_{J,m_A,m_B}(\Omega)$ is the hyperspherical function on $S^3$,
+and $\Omega$ is a coordinate on $S^3$. Here, $J$ is a non-negative
+half-integer and labels the total angular momentum, and $m_A$ and $m_B$
+are the azimuthal quantum numbers for the $A$-spin and the $B$-spin of
+$so(4)\simeq su(2)_A\times su(2)_B$, respectively. The Laplacian
+operator acts on the hyperspherical function as
+\begin{align}
+ -\partial^2 Y_{J,m_A,m_B}(\Omega) = \frac{L^2}{r^2}Y_{J,m_A,m_B}(\Omega),
+\end{align}
+where
+\begin{align}
+ L = \sqrt{4J(J+1)}.
+\end{align}
+
+Since the fluctuation operator for partial waves does not depend on
+$m_A$ and $m_B$, we have $(2J+1)^2$ degeneracy for each $J$.  Summing up
+all the contributions, we have
+\begin{align}
+ \ln\mathcal A^{(\sigma)}
+ = -\frac{1}{2}\sum_{J=0}^{\infty}(2J+1)^2
+ \ln\frac{\det[-\Delta_J+\kappa\bar\phi^2]}{\det[-\Delta_J]},
+\end{align}
+where
+\begin{align}
+ \Delta_J = \partial_r^2+\frac{3}{r}\partial_r-\frac{L^2}{r^2}.
+\end{align}
+
+Using eq.~\eqref{eq_theorem}, we have
+\begin{align}
+ \frac{\det[-\Delta_J+\kappa\bar\phi^2]}{\det[-\Delta_J]}
+ = \lim_{r\to\infty}\frac{f^{(\sigma)}(r)}{r^{2J}},
+\end{align}
+where
+\begin{align}
+ (-\Delta_J+\kappa\bar\phi^2)f^{(\sigma)} = 0,
+\end{align}
+with $\lim_{r\to0}f^{(\sigma)}(r)/r^{2J} = 1$. Notice that
+$\Delta_Jr^{2J} = 0$.
+
+The exact solution to the above differential equation is given by
+\begin{align}
+ f^{(\sigma)} = r^{2J}
+ \left(
+  1+\frac{|\lambda|}{8}\bar\phi_C^2r^2
+ \right)^{1+z_\kappa}{}_2F_1
+ \left(
+  1+z_\kappa,2(J+1)+z_\kappa,2(J+1),-\frac{|\lambda|}{8}\bar\phi_C^2r^2
+ \right),
+\end{align}
+where ${}_2F_1(a,b,c,z)$ is the hypergeometric function and
+\begin{align}
+ z_\kappa = -\frac{1}{2}
+ \left(
+  1-\sqrt{1-8\frac{\kappa}{|\lambda|}}
+ \right).
+\end{align}
+Taking the limit of $r\to\infty$, we have
+\begin{align}
+ \frac{\det[-\Delta_J+\kappa\bar\phi^2]}{\det[-\Delta_J]}
+ = \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_\kappa)\Gamma(2J+2+z_\kappa)}.
+ \label{eq_scalarDeterminant}
+\end{align}
+
+\subsection{Higgs contribution}
+
+Using the bounce solution given in Eq.\ \eqref{BounceSolution}, the
+Higgs mode fluctuation is parametrized as
+\begin{align}
+ \Phi = \frac{1}{\sqrt{2}}
+ \left( 
+   \bar\phi(r)+h^{J,m_A,m_B}(r)Y_{J,m_A,m_B}(\Omega)
+ \right).
+\end{align}
+Then, the Higgs contribution to the prefactor is given by
+\begin{align}
+ \ln\mathcal A^{(h)}
+  & = -\frac{1}{2}\ln\frac{\det[-\partial^2-3|\lambda|\bar\phi^2]}{\det[-\partial^2]}\nonumber              \\
+  & = -\frac{1}{2}\sum_{J=0}^\infty(2J+1)^2\ln\frac{\det[-\Delta_J-3|\lambda|\bar\phi^2]}{\det[-\Delta_J]}.
+\end{align}
+The procedure is parallel to the scalar case with replacement
+$\kappa\to-3|\lambda|$. From eq.~\eqref{eq_scalarDeterminant}, we have
+\begin{align}
+ \frac{\det[-\Delta_J-3|\lambda|\bar\phi^2]}{\det[-\Delta_J]}
+ = \frac{2J(2J-1)}{(2J+3)(2J+2)}.
+\end{align}
+As we can see, $J = 0$ and $J = 1/2$ have zero modes, which correspond
+to the scale invariance and the translational invariance, respectively.
+
+\subsection{Fermion contribution}
+
+Let us consider chiral fermions $\psi_L$ and $\psi_R$ with the
+following Yukawa term
+\begin{align}
+  \mathcal L_{\rm Yukawa} = y \Phi \bar{\psi}_L \psi_R + {\rm h.c.}
+\end{align}
+
+The contribution to the prefactor is given by
+\begin{align}
+  \ln\mathcal A^{(\psi)}
+  & = \ln\frac{\det
+    \left[
+      \cancel\partial+\frac{y}{\sqrt{2}}\bar\phi
+    \right]}{\det[\cancel\partial]}
+  \nonumber
+  \\
+  & = \frac{1}{2}\ln\frac{\det
+  \left[
+   \left(
+    \cancel\partial+\frac{y}{\sqrt{2}}\bar\phi
+   \right)
+   \left(-\cancel\partial+\frac{y}{\sqrt{2}}\bar\phi
+   \right)
+  \right]}{\det[-\cancel\partial\cancel\partial]}\nonumber \\
+  & = \frac{1}{2}\ln\frac{\det
+  \left[
+   -\partial^2+\frac{y^2}{2}\bar\phi^2+\frac{y}{\sqrt{2}}(\cancel\partial\bar\phi)
+  \right]}{\det[-\partial^2]}.
+\end{align}
+Using the basis given in \cite{Avan:1985eg}, we have
+\begin{align}
+ \ln\mathcal A^{(\psi)}
+  & = \sum_{J=0}^{\infty} (2J+1)(2J+2)
+ \ln\frac{\det\mathcal M^{(\psi)}_J}{\det\widehat{\mathcal M}^{(\psi)}_J}.
+\end{align}
+where
+\begin{align}
+ \mathcal M^{(\psi)}_J =
+ \begin{pmatrix}
+  -\Delta_J+\frac{y^2}{2}\bar\phi^2 & \frac{y}{\sqrt{2}}\bar\phi'             \\
+  \frac{y}{\sqrt{2}}\bar\phi'       & -\Delta_{J+1/2}+\frac{y^2}{2}\bar\phi^2
+ \end{pmatrix},
+\end{align}
+and $\widehat{\mathcal M}^{(\psi)}_J$ is obtained by replacement
+$\bar\phi\to0$ and $\bar\phi'\to0$. Here, $\bar\phi'=d\bar\phi/dr$.
+
+Using eq.~\eqref{eq_theorem}, we have
+\begin{align}
+ \frac{\det\mathcal M^{(\psi)}_J}{\det\widehat{\mathcal M}^{(\psi)}_J}
+ =
+ \left(
+  \lim_{r\to\infty}\frac{\det[\Psi_1~\Psi_2]}{r^{4J+1}}
+ \right)
+ \left(
+  \lim_{r\to0}\frac{\det[\Psi_1~\Psi_2]}{r^{4J+1}}
+ \right)^{-1},
+\end{align}
+where
+\begin{align}
+ \mathcal M^{(\psi)}_J\Psi_i(r) = 0.
+\end{align}
+
+Solutions can be decomposed into two functions as
+\begin{align}
+ \Psi_i =
+ \begin{pmatrix}
+  \frac{\sqrt{2}}{y\bar\phi}\frac{1}{r^{2J+3}}\partial_rr^{2J+3}\chi_i \\
+  \chi_i
+ \end{pmatrix} +
+ \begin{pmatrix}
+  -\frac{2}{y^2\bar\phi^2}\frac{1}{r^{2J+3}}\partial_rr^{2J+3}\eta_i \\
+  0
+ \end{pmatrix},
+\end{align}
+where
+\begin{align}
+ \left[
+  -\Delta_{J+1/2}
+  +\frac{\bar\phi'}{\bar\phi}\frac{1}{r^{2J+3}}\partial_rr^{2J+3}
+  +\frac{y^2}{2}\bar\phi^2
+ \right]\chi_i
+  & =\frac{\sqrt{2}\bar\phi'}{y\bar\phi^2}\frac{1}{r^{2J+3}}\partial_rr^{2J+3}\eta_i, \\
+ \left[
+  -\Delta_{J+1/2}
+  +\frac{\bar\phi'}{\bar\phi}\frac{1}{r^{2J+3}}\partial_rr^{2J+3}
+  +\frac{y^2}{2}\bar\phi^2
+ \right]\eta_i
+  & =0.
+\end{align}
+
+For the first solution, we take
+\begin{align}
+ \chi_1(r) = f^{(\psi)}(r),~\eta_1(r) = 0,
+\end{align}
+where
+\begin{align}
+ f^{(\psi)}(r) = r^{2J+1}
+ \left(
+  1+\frac{|\lambda|}{8}\bar\phi_C^2r^2
+ \right)^{-i\frac{y}{\sqrt{|\lambda|}}}{}_2F_1
+ \left(
+  2J+2-i\frac{y}{\sqrt{|\lambda|}},1-i\frac{y}{\sqrt{|\lambda|}},
+  2J+3,-\frac{|\lambda|}{8}\bar\phi_C^2r^2
+ \right).
+\end{align}
+Here, $f^{(\psi)}$ behaves as
+\begin{align}
+ \lim_{r\to0}\frac{f^{(\psi)}(r)}{r^{2J+1}}
+  & = 1,                              \\
+ \lim_{r\to\infty}\frac{f^{(\psi)}(r)}{r^{2J-1}}
+  & = \frac{8}{|\lambda|\bar\phi_C^2}
+ \frac{\Gamma(2J+1)\Gamma(2J+3)}{\Gamma
+  \left(
+   2J+2-i\frac{y}{\sqrt{\lambda}}
+  \right)
+  \Gamma
+  \left(
+   2J+2+i\frac{y}{\sqrt{\lambda}}
+  \right)}.
+\end{align}
+
+For the second solution, we take
+\begin{align}
+ \eta_2(r) = f^{(\psi)}(r).
+\end{align}
+Then, $\chi_2$ behaves as
+\begin{align}
+ \lim_{r\to0}\frac{\chi_2(r)}{r^{2J+3}}
+  & = -\frac{\sqrt{2}\bar\phi''(0)}{y\bar\phi_C^2}\frac{J+1}{2J+3}, \\
+ \lim_{r\to\infty}\frac{\chi_2(r)}{r^{2J+1}}
+  & = \frac{\sqrt{2}}{y\bar\phi_C}
+ \frac{[\Gamma(2J+2)]^2}{\Gamma
+  \left(
+   2J+2-i\frac{y}{\sqrt{\lambda}}
+  \right)\Gamma
+  \left(
+   2J+2+i\frac{y}{\sqrt{\lambda}}
+  \right)}.
+\end{align}
+Using these solutions, we get
+\begin{align}
+ \lim_{r\to0}\frac{\det[\Psi_1~\Psi_2]}{r^{4J+1}}
+  & = \frac{8(J+1)}{y^2\bar\phi_C^2}, \\
+ \lim_{r\to\infty}\frac{\det[\Psi_1~\Psi_2]}{r^{4J+1}}
+  & = \frac{8(J+1)}{y^2\bar\phi^2}
+ \left[
+  \frac{[\Gamma(2J+2)]^2}{\Gamma
+   \left(
+    2J+2-i\frac{y}{\sqrt{\lambda}}
+   \right)\Gamma
+   \left(
+    2J+2+i\frac{y}{\sqrt{\lambda}}
+   \right)}
+ \right]^2.
+\end{align}
+Thus, we have
+\begin{align}
+ \frac{\det\mathcal M^{(\psi)}_J}{\det\widehat{\mathcal M}^{(\psi)}_J}
+ =
+ \left[
+  \frac{[\Gamma(2J+2)]^2}{\Gamma
+   \left(
+    2J+2-i\frac{y}{\sqrt{\lambda}}
+   \right)\Gamma
+   \left(
+    2J+2+i\frac{y}{\sqrt{\lambda}}
+   \right)}
+ \right]^2.
+ \label{eq_FermionDeterminant}
+\end{align}
+
+\subsection{Gauge contribution}
+
+We consider the contributions from gauge bosons, NG bosons, and the
+Faddeev-Popov ghosts.  Let us consider the following Lagrangian;
+\begin{align}
+  \mathcal L = \frac{1}{4} F_{\mu\nu} F_{\mu\nu}
+  + \left[
+    \left(
+      \partial_\mu - i g A_\mu 
+    \right) \Phi
+  \right]^\dagger
+  \left(
+    \partial_\mu - i g A_\mu 
+  \right) \Phi
+  +V(\Phi)+\mathcal L_{\rm GF}+\mathcal L_{\rm FP},
+\end{align}
+where $F_{\mu\nu}$ is the field strength tensor, and
+\begin{align}
+  \mathcal L_{\rm GF} & = \frac{1}{2\xi}\mathcal F^2, \\
+  \mathcal L_{\rm FP} & = \bar{c}(-\partial_\mu \partial_\mu)c,
+\end{align}
+with
+\begin{align}
+  \mathcal F = \partial_\mu A_\mu.
+\end{align}
+
+Since the Faddeev-Popov ghosts do not directly couple to the Higgs
+field, we have
+\begin{align}
+ \ln \mathcal A^{(c,\bar{c})} = 0.
+\end{align}
+
+At the one-loop level, $\ln\mathcal A^{(A_\mu,\varphi)}$ is given by
+\begin{align}
+  \ln\mathcal A^{(A_\mu,\varphi)}
+  & = 
+  - \frac{1}{2}
+  \ln
+  \frac{\det\mathcal M^{(A_\mu,\varphi)}}
+  {\det\widehat{\mathcal M}^{(A_\mu,\varphi)}},
+\end{align}
+where
+\begin{align}
+ \mathcal M^{(A_\mu,\varphi)} =
+ \begin{pmatrix}
+  -\partial^2\delta_{\mu\nu}+
+  \left(
+   1-\frac{1}{\xi}
+  \right)\partial_\mu\partial_\nu+g^2\bar\phi^2
+   & g(\partial_\nu\bar\phi)-g\bar\phi\partial_\nu \\
+  2g(\partial_\mu\bar\phi)+g\bar\phi\partial_\mu
+   & -\partial^2+m_{a}^2
+ \end{pmatrix}.
+ \label{eq_gaugeFluct}
+\end{align}
+Here, $m_{a}^2 = d^2V/d\varphi d\varphi$.
+
+\rem{Some new notation for $m_a$!!!}
+
+For the partial wave expansions, we use the following basis;
+\begin{align}
+ A_\mu(r,\Omega)
+  & = \alpha_S^{J,m_A,m_B}(r)\frac{x_\mu}{r} Y_{J,m_A,m_B}(\Omega)
+ +\alpha_L^{J,m_A,m_B}(r)\frac{r}{L}\partial_\mu Y_{J,m_A,m_B}(\Omega)\nonumber \\
+  & \hspace{3ex}+\alpha_{T1}^{J,m_A,m_B}(r)i\varepsilon_{\mu\nu\rho\sigma}
+ V_\nu^{(1)}L_{\rho\sigma}Y_{J,m_A,m_B}(\Omega)
+ +\alpha_{T2}^{J,m_A,m_B}(r)i\varepsilon_{\mu\nu\rho\sigma}
+ V_\nu^{(2)}L_{\rho\sigma}Y_{J,m_A,m_B}(\Omega),                                \\
+ \varphi(r,\Omega)
+  & = \varphi^{J,m_A,m_B}(r)Y_{J,m_A,m_B}(\Omega),
+ \label{eq_gaugeBasis}
+\end{align}
+where $V_\nu^{(i)}$'s are arbitrary independent vectors and
+$\varepsilon_{\mu\nu\rho\sigma}$ is a fully anti-symmetric tensor.  We
+have
+\begin{align}
+ \ln\mathcal A^{(A_\mu,\varphi)}
+ &= -\frac{1}{2}\sum_{J = 0}^{\infty}(2J+1)^2
+ \left[
+  \ln\frac{\det\mathcal M^{(A_\mu,\varphi)}_J}{\det\widehat{\mathcal M}^{(A_\mu,\varphi)}_J}
+ \right]\nonumber \\
+ &= -\frac{1}{2}\ln\frac{\det\mathcal M^{(S,\varphi)}_0}{\det\widehat{\mathcal M}^{(S,\varphi)}_0}
+ -\frac{1}{2}\sum_{J = 1/2}^{\infty}(2J+1)^2
+ \left[
+  \ln\frac{\det\mathcal M^{(S,L,\varphi)}_J}{\det\widehat{\mathcal M}^{(S,L,\varphi)}_J}
+  +2\ln\frac{\det\mathcal M^{(T)}_J}{\det\widehat{\mathcal M}^{(T)}_J}
+ \right],
+ \label{eq_gaugeSLT}
+\end{align}
+where
+\begin{align}
+ \mathcal M^{(T)}_J = -\Delta_J+g^2\bar\phi^2,
+\end{align}
+\begin{align}
+ \mathcal M^{(S,L,\varphi)}_J & =
+ \begin{pmatrix}
+  -\Delta_J+\frac{3}{r^2}+g^2\bar\phi^2
+   & -\frac{2L}{r^2}
+   & g\bar\phi'-g\bar\phi\partial_r                                  \\
+  -\frac{2L}{r^2}
+   & -\Delta_J-\frac{1}{r^2}+g^2\bar\phi^2 & -\frac{L}{r}g\bar\phi \\
+  2g\bar\phi'+g\bar\phi\frac{1}{r^3}\partial_rr^3
+   & -\frac{L}{r}g\bar\phi
+   & -\Delta_J+m_a^2
+ \end{pmatrix}\nonumber                                     \\
+                              & \hspace{3ex}+\left(1-\frac{1}{\xi}\right)
+ \begin{pmatrix}
+  \Delta_{1/2}
+   & -L\partial_r\frac{1}{r}
+   & 0                       \\
+  \frac{L}{r^4}\partial_rr^3
+   & -\frac{L^2}{r^2}
+   & 0                       \\
+  0
+   & 0
+   & 0
+ \end{pmatrix},
+\end{align}
+and
+\begin{align}
+ \mathcal M^{(S,\varphi)}_0 & =
+ \begin{pmatrix}
+  \frac{1}{\xi}\left(-\Delta_{1/2}+\xi g^2\bar\phi^2\right)
+   & g\bar\phi'-g\bar\phi\partial_r \\
+  2g\bar\phi'+g\bar\phi\frac{1}{r^3}\partial_rr^3
+   & -\Delta_0+m_a^2
+ \end{pmatrix}.
+\end{align}
+
+Solutions can be constructed from
+\cite{Endo:2017gal,Endo:2017tsz}\footnote
+%%
+{The function $\eta$ in the present analysis corresponds to $\eta/L$
+  in \cite{Endo:2017gal,Endo:2017tsz}; such a rescaling makes the
+  formulas simpler.}
+%%
+\begin{align}
+ \Psi_i\equiv
+ \begin{pmatrix}
+  \Psi_i^{\rm (top)} \\
+  \Psi_i^{\rm (mid)} \\
+  \Psi_i^{\rm (bot)}
+ \end{pmatrix}=
+ \begin{pmatrix}
+  \partial_r\chi_i  \\
+  \frac{L}{r}\chi_i \\
+  g\bar\phi\chi_i
+ \end{pmatrix}
+ +
+ \begin{pmatrix}
+  \frac{L}{r}\frac{1}{g^2\bar\phi^2}\eta_i                \\
+  \frac{1}{g^2\bar\phi^2}\frac{1}{r^2}\partial_rr^2\eta_i \\
+  0
+ \end{pmatrix}
+ +
+ \begin{pmatrix}
+  -\frac{2\bar\phi'}{g^2\bar\phi^3}\zeta_i \\
+  0                                          \\
+  \frac{1}{g\bar\phi}\zeta_i
+ \end{pmatrix},
+\end{align}
+where
+\begin{align}
+  & \Delta_J\chi_i = \frac{L}{r}\frac{2\bar\phi'}{g^2\bar\phi^3}\eta_i
+ +\frac{1}{r^3}\partial_rr^3\frac{2\bar\phi'}{g^2\bar\phi^3}\zeta_i
+ -\xi\zeta_i,                                                            \\
+  &
+ \left(
+  \Delta_J-2\frac{\bar\phi'}{\bar\phi}\frac{1}{r^2}\partial_rr^2-g^2\bar\phi^2
+ \right)\eta_i
+ = -2\frac{L}{r}\frac{\bar\phi'}{\bar\phi}\zeta_i,                       \\
+  & \Delta_J\zeta_i = 0.
+\end{align}
+There are useful relations as
+\begin{align}
+ \frac{1}{r^3}\partial_rr^3\Psi^{\rm (top)}_i
+  & = \frac{L}{r}\Psi_i^{\rm (mid)}-\xi\zeta_i,
+ \label{eq_relationPositiveJ1}                  \\
+ \frac{1}{r}\partial_rr\Psi^{\rm (mid)}_i
+  & = \frac{L}{r}\Psi^{\rm (top)}_i+\eta_i,
+ \label{eq_relationPositiveJ2}                  \\
+ \Psi^{\rm (bot)}_i
+  & = \frac{rg\bar\phi}{L}\Psi^{\rm (mid)}_i
+ -\frac{1}{g\bar\phi L}\frac{1}{r}\partial_rr^2\eta_i
+ +\frac{1}{g\bar\phi}\zeta.
+ \label{eq_relationPositiveJ3}
+\end{align}
+
+The first solution is obtained by setting $\zeta_1 = 0,\eta_1 = 0$, and
+\begin{align}
+ \chi_1 = r^{2J}.
+\end{align}
+We get
+\begin{align}
+ \Psi_1 =
+ \begin{pmatrix}
+  2Jr^{2J-1} \\
+  Lr^{2J-1}  \\
+  g\bar\phi r^{2J}
+ \end{pmatrix}.
+\end{align}
+
+For the second solution, we set $\zeta_2 = 0$ and
+\begin{align}
+ \eta_2 = f^{(\eta)},
+\end{align}
+where
+\begin{align}
+ f^{(\eta)} = r^{2J}
+ \left(
+  1+\frac{|\lambda|}{8}\bar\phi_C^2r^2
+ \right)^{z_g}{}_2F_1
+ \left(
+  1+z_g,2(J+1)+z_g,2(J+1),-\frac{|\lambda|}{8}\bar\phi_C^2r^2
+ \right),
+\end{align}
+with
+\begin{align}
+ z_g = -\frac{1}{2}\left(
+  1-\sqrt{1-8\frac{g^2}{|\lambda|}}
+ \right).
+\end{align}
+It satisfies
+\begin{align}
+ \left(
+  \Delta_J-2\frac{\bar\phi'}{\bar\phi}\frac{1}{r^2}\partial_rr^2-g^2\bar\phi^2
+ \right)f^{(\eta)} = 0.
+\end{align}
+Its asymptotic behavior is given by
+\begin{align}
+ \lim_{r\to0}\frac{f^{(\eta)}(r)}{r^{2J}}
+  & = 1,                              \\
+ \lim_{r\to\infty}\frac{f^{(\eta)}(r)}{r^{2J-2}}
+  & = \frac{8}{|\lambda|\bar\phi_C^2}
+ \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}.
+\end{align}
+Then, using eqs.~\eqref{eq_relationPositiveJ1}, \eqref{eq_relationPositiveJ2}, and
+\eqref{eq_relationPositiveJ3}, we have
+\begin{align}
+ \lim_{r\to0}\Psi_2      & =
+ \begin{pmatrix}
+  \frac{Lr^{2J+1}}{8(J+1)}   \\
+  \frac{J+2}{4(J+1)}r^{2J+1} \\
+  -\frac{2}{g\bar\phi_C}\frac{J+1}{L}r^{2J}
+ \end{pmatrix}, \\
+ \lim_{r\to\infty}\Psi_2 & =
+ \begin{pmatrix}
+  \frac{4L}{(2J+1)|\lambda|\bar\phi^2}r^{2J-1}\ln r       \\
+  \frac{8(J+1)}{(2J+1)|\lambda|\bar\phi_C^2}r^{2J-1}\ln r \\
+  -\frac{2J}{gL\bar\phi_C}r^{2J}
+ \end{pmatrix}\times\frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}.
+\end{align}
+
+The last solution can be obtained with
+\begin{align}
+ \zeta_3 = r^{2J}.
+\end{align}
+The asymptotic form of $\eta_3$ is given by
+\begin{align}
+ \lim_{r\to0}\frac{\eta_3(r)}{r^{2J+2}} = \frac{L|\lambda|\bar\phi_C^2}{16(J+1)}, \\
+ \lim_{r\to\infty}\frac{\eta_3(r)}{r^{2J}} = \frac{L}{2(J+1)}.
+\end{align}
+Using eqs.~\eqref{eq_relationPositiveJ1}, \eqref{eq_relationPositiveJ2},
+and \eqref{eq_relationPositiveJ3}, we have
+\begin{align}
+ \lim_{r\to0}\Psi_3      & =
+ \begin{pmatrix}
+  -\frac{\xi}{4}r^{2J+1}   \\
+  -\frac{J\xi}{2L}r^{2J+1} \\
+  \frac{1}{g\bar\phi_C}r^{2J}
+ \end{pmatrix}, \\
+ \lim_{r\to\infty}\Psi_3 & =
+ \begin{pmatrix}
+  \frac{J-\xi(J+1)}{4(J+1)}r^{2J+1}         \\
+  \frac{J[(J+2)-\xi(J+1)]}{2L(J+1)}r^{2J+1} \\
+  \frac{g}{|\lambda|\bar\phi_C}\frac{(J+2)-\xi(J+1)}{(J+1)^2}r^{2J}
+ \end{pmatrix}.
+\end{align}
+
+As for the solutions around the false vacuum, we have
+\begin{align}
+ (\hat\Psi_1~\hat\Psi_2~\hat\Psi_3)=
+ \begin{pmatrix}
+  2Jr^{2J-1} & \frac{(J+1)\xi-J}{2L^2}r^{2J+1}        & 0      \\
+  Lr^{2J-1}  & \frac{(J+1)\xi-(J+2)}{4L(J+1)}r^{2J+1} & 0      \\
+  0          & 0                                      & r^{2J}
+ \end{pmatrix}.
+\end{align}
+
+Using them, we obtain
+\begin{align}
+ \frac{\det\mathcal M^{(S,L,\varphi)}_J}{\det\widehat{\mathcal M}^{(S,L,\varphi)}_J}
+  & =
+ \left(
+  \lim_{r\to\infty}\frac{\det[\Psi_1~\Psi_2~\Psi_3]}{\det[\hat\Psi_1~\hat\Psi_2~\hat\Psi_3]}
+ \right)
+ \left(
+  \lim_{r\to0}\frac{\det[\Psi_1~\Psi_2~\Psi_3]}{\det[\hat\Psi_1~\hat\Psi_2~\hat\Psi_3]}
+ \right)^{-1}\nonumber                                                                    \\
+  & = \frac{J}{J+1}\frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}.
+\end{align}
+
+Meanwhile, the functional determinant for $(T)$ modes can be obtained by
+replacing $\kappa\to g^2$ in eq.~\eqref{eq_scalarDeterminant}. We have
+\begin{align}
+ \frac{\det\mathcal M_J^{(T)}}{\det\widehat{\mathcal M}_J^{(T)}}
+ = \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}.
+\end{align}
+
+For $J = 0$, we have a similar decomposition of solutions
+\cite{Endo:2017gal,Endo:2017tsz}, which is given by
+\begin{align}
+ \Psi_i\equiv
+ \begin{pmatrix}
+  \Psi_i^{\rm (top)} \\
+  \Psi_i^{\rm (bot)}
+ \end{pmatrix} =
+ \begin{pmatrix}
+  \partial_r\chi_i \\
+  g\bar\phi\chi_i
+ \end{pmatrix}
+ +
+ \begin{pmatrix}
+  -\frac{2\bar\phi'}{g^2\bar\phi^3}\zeta_i \\
+  \frac{1}{g\bar\phi}\zeta_i
+ \end{pmatrix},
+\end{align}
+where
+\begin{align}
+  & \Delta_0\chi_i =
+ \frac{1}{r^3}\partial_rr^3\frac{2\bar\phi'}{g^2\bar\phi^3}\zeta_i-\xi\zeta_i, \\
+  & \Delta_0\zeta_i =
+ g\bar\phi \Xi.
+ \label{eq_gauge0zeta}
+\end{align}
+Here, $\Xi$ is a source term, which will be used later. For the moment,
+$\Xi = 0$.
+
+There are useful relations;
+\begin{align}
+ \frac{1}{r^3}\partial_rr^3\Psi_i^{\rm (top)}
+  & = -\xi\zeta_i,
+ \label{eq_relationZero1}                                            \\
+ \partial_r\frac{1}{g\bar\phi}\Psi_i^{\rm (bot)}
+  & = \Psi_i^{\rm (top)}+\frac{1}{g^2\bar\phi^2}\partial_r\zeta_i.
+ \label{eq_relationZero2}
+\end{align}
+
+The first solution to $\mathcal M_0^{(S,\varphi)}\Psi = 0$ is given by
+\begin{align}
+ \Psi_1 =
+ \begin{pmatrix}
+  0 \\
+  \frac{\bar\phi}{\bar\phi_C}
+ \end{pmatrix}.
+ \label{eq_gauge0psi1}
+\end{align}
+Meanwhile, another solution can be obtained with
+\begin{align}
+ \zeta_2 = 1.
+\end{align}
+Integrating eqs.~\eqref{eq_relationZero1} and \eqref{eq_relationZero2},
+we get
+\begin{align}
+ \Psi_2 =
+ \begin{pmatrix}
+  -\xi\frac{r}{4} \\
+  -\xi g\bar\phi\frac{r^2}{8}
+ \end{pmatrix}.
+\end{align}
+
+Using them, we obtain
+\begin{align}
+ \frac{\det\mathcal M^{(S,\varphi)}_0}{\det\widehat{\mathcal M}^{(S,\varphi)}_0}
+  & = \left(
+  \lim_{r\to\infty}\frac{\det[\Psi_1~\Psi_2]}{\det[\hat\Psi_1~\hat\Psi_2]}
+ \right)
+ \left(
+  \lim_{r\to0}\frac{\det[\Psi_1~\Psi_2]}{\det[\hat\Psi_1~\hat\Psi_2]}
+ \right)^{-1}\nonumber \\
+  & = 0,
+\end{align}
+which is due to the existence of zero modes.
+
+%
+%as a result of the global symmetry \cite{Kusenko:1996bv},
+%\begin{align}
+%  \Phi\to e^{iT\theta}\Phi.
+%\end{align}
+
+In summary, we have
+\begin{align}
+ \ln\mathcal A^{(A_\mu,\varphi)}
+ = -\frac{1}{2}\sum_{J=0}^{\infty}(2J+1)^2
+ \ln\frac{\det\mathcal M^{(A_\mu,\varphi)}_J}
+ {\det\widehat{\mathcal M}^{(A_\mu,\varphi)}_J},
+ \label{eq_gaugeSLT}
+\end{align}
+with
+\begin{align}
+ \frac{\det\mathcal M^{(A_\mu,\varphi)}_J}{\det\widehat{\mathcal M}^{(A_\mu,\varphi)}_J}
+ = \frac{J}{J+1}
+ \left[
+  \frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z_g)\Gamma(2J+2+z_g)}
+ \right]^3.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%
+%Zero modes
+\section{Zero Modes}
+\label{apx_zeromode}
+\setcounter{equation}{0}
+
+Here, we discuss the zero modes associated with invariance under
+dilatation, translation, and global transformation.
+
+\subsection{Dilatational zero mode}
+
+In $J = 0$ of the Higgs fluctuation, we have a dilatational zero
+mode. The dilatational transformation is parametrized by $\bar\phi_C$
+and is given by
+\begin{align}
+ h\to h+\bar\phi_C\tilde{\fnc}_DY_{0,0,0}+\mathcal O(\bar\phi_C^2).
+\end{align}
+where\footnote{Notice that $Y_{0,0,0} = 1/\sqrt{2\pi^2}$.}
+\begin{align}
+ \tilde{\fnc}_D(r) = \sqrt{2\pi^2}\frac{d\bar\phi}{d\bar\phi_C}.
+\end{align}
+
+We regulate the determinant as
+\begin{align}
+ \frac{\det[-\Delta_0-3|\lambda|\bar\phi^2+\nu \rho_D(r)]}{\det[-\Delta_0]},
+\end{align}
+where\footnote
+%%
+{A prescription used in \cite{Chigusa:2017dux} is consistent with our
+  argument, where $\rho_D$ is a constant.}
+%%
+\begin{align}
+ \rho_D(r) = \frac{15}{16\pi}|\lambda|^2\bar\phi_C^2\bar\phi(r)^2.
+\end{align}
+The ratio of the determinant can be obtained from
+eq.~\eqref{eq_scalarDeterminant} with replacement
+$\kappa\to-3|\lambda|+\frac{15}{16\pi}|\lambda|^2\bar\phi_C^2\nu$. Expanding
+with respect to $\nu$, we have
+\begin{align}
+ \frac{\det[-\Delta_0-3|\lambda|\bar\phi^2+\nu \rho_D(r)]}{\det[-\Delta_0]}
+ = -\nu\frac{|\lambda|}{16\pi}\bar\phi_C^2+\mathcal O(\nu^2).
+\end{align}
+Thus, we get
+\begin{align}
+ \left|
+ \frac{\det[-\Delta_0-3|\lambda|\bar\phi^2]}{\det[-\Delta_0]}
+ \right|^{-1/2}
+ \to \int d\bar\phi_C\sqrt{\frac{16\pi}{|\lambda|}}\frac{1}{\bar\phi_C}.
+\end{align}
+Here, we take an absolute value since there is a negative mode
+\cite{Coleman:1977py,Callan:1977pt}.
+
+\subsection{Translational zero mode}
+
+In $J = 1/2$ of the Higgs fluctuation, we have translational zero modes.
+The translation is parametrized by the center of the bounce, $z_\mu$, as
+\begin{align}
+ h \to h+z_\mu \tilde{\fnc}_T Y_{1/2,\mu}+\mathcal O(z^2),
+\end{align}
+where
+\begin{align}
+  \tilde{\fnc}_T(r) & = -\frac{\pi}{\sqrt{2}}\frac{d\bar\phi}{dr}, \\
+  Y_{1/2,\mu}(\hat{x}) & = \frac{\sqrt{2}}{\pi}\hat{x}_\mu,
+\end{align}
+with $\hat{x}_\mu = x_\mu/|x|$.  Notice that $Y_{1/2,\mu}$ is given by
+a linear combination of $Y_{1/2,m_A,m_B}$ and that it has the same
+normalization as $Y_{1/2,m_A,m_B}$.  We regularize the zero mode as
+\begin{align}
+ \frac{\det[-\Delta_{1/2}-3|\lambda|\bar\phi^2+\rho_T(r)\nu]}
+ {\det[-\Delta_{1/2}]},
+\end{align}
+where
+\begin{align}
+ \rho_T(r) = \frac{3|\lambda|}{4\pi}
+\end{align}
+Then, we have
+\begin{align}
+ \left(
+  \frac{\det[-\Delta_{1/2}-3|\lambda|\bar\phi^2]}{\det[-\Delta_{1/2}]}
+ \right)^{-2}\to\int d^4z
+ \lim_{r\rightarrow\infty}
+ \left(
+  \frac{\check f^{(h)}_{1/2}}{r}
+ \right)^{-2},
+\end{align}
+where
+\begin{align}
+ [-\Delta_{1/2}-3|\lambda|\bar\phi^2]\check f^{(h)}_{1/2} = -\rho_Tf_{1/2}^{(h)}.
+\end{align}
+with
+\begin{align}
+ f_{1/2}^{(h)} = -\frac{4}{|\lambda|\bar\phi_C^3}\frac{d\bar\phi}{dr}.
+\end{align}
+The solution behaves as
+\begin{align}
+ \lim_{r\to\infty}\frac{\check f^{(h)}_{1/2}}{r} = \frac{1}{4\pi\bar\phi_C^2}.
+\end{align}
+Thus, we obtain
+\begin{align}
+ \left(
+  \frac{\det[-\Delta_{1/2}-3|\lambda|\bar\phi^2]}{\det[-\Delta_{1/2}]}
+ \right)^{-2}\to\int d^4z (4\pi\bar\phi_C^2)^2 =
+ \left(
+  \frac{32\pi}{|\lambda|}
+ \right)^2
+ \left(
+  \frac{|\lambda|}{8}\bar\phi_C^2
+ \right)^2\mathcal V_{\rm 4D},
+\end{align}
+where $\mathcal V_{\rm 4D}$ is the volume of spacetime.
+
+\subsection{Gauge zero mode}
+
+In the $J = 0$ contribution of the gauge field, we have a gauge zero
+mode \cite{Kusenko:1996bv}.  For the case of the $U(1)$ gauge
+symmetry, the bounce solution is parameterized as Eq.\
+\eqref{???inSec2} with the parameter $\theta$.  The path integral over
+the gauge zero mode can be understood as the integration over the
+variable $\theta$.  
+
+With the change of $\theta$, the NG mode transforms as 
+\begin{align}
+  \varphi \to 
+  \varphi + \theta \tilde{\fnc}_G Y_{0,0,0} +\mathcal O(\theta^2),
+\end{align}
+where
+\begin{align}
+  \tilde{\fnc}_G = \sqrt{2\pi^2}J_G\bar\phi.
+\end{align}
+and $J_G$ is the Jacobian for the group space integral. For $U(1)$ case,
+$J_G = 1$, with which the volume of the $U(1)$ group space is
+\begin{align}
+  {\cal V}_{U(1)} = \int_0^{2\pi} d\theta = 2\pi.
+\end{align}
+Using the equation of motion of the bounce solution, we can show
+\begin{align}
+  \mathcal M^{(S,\varphi)}_0 \tilde \fnc_G = 0.
+\end{align}
+
+\rem{TM: I will modify the following later.}
+
+We regularize the zero mode as
+\begin{align}
+ \frac{\det
+ \left[
+  \mathcal M_0^{(S,\varphi)}+\nu\rho_G(r)
+ \right]}{\det\widehat{\mathcal M}_0^{(S,\varphi)}},
+\end{align}
+with
+\begin{align}
+ \rho_G(r) = \frac{|\lambda|^2}{16\pi J_G^2}\bar\phi_C\bar\phi.
+\end{align}
+
+To evaluate it at the leading order in $\nu$, we evaluate\footnote{If we
+ do a similar calculation for $\Psi_2$, we get
+ $\lim_{r\to\infty}\det[\Psi_1~\check\Psi_2] = 0$. Thus, it is enough to
+ calculate $\check\Psi_1$.}
+\begin{align}
+ \mathcal M^{(S,\varphi)}_0\check\Psi_1(r) = -\rho_G(r)\Psi_1(r).
+\end{align}
+
+The solution can be obtained by setting
+\begin{align}
+ \Xi(r) = \rho_G(r)\Psi_1^{\rm (bot)}(r),
+\end{align}
+in eq.~\eqref{eq_gauge0zeta}.
+We can solve $\zeta_1$ as
+\begin{align}
+ \zeta_1(r) = -\frac{|\lambda|g}{16\pi J_G^2}\bar\phi(r).
+\end{align}
+Integrating eqs.~\eqref{eq_relationZero1} and \eqref{eq_relationZero2},
+we get $\check\Psi_1$. Its asymptotic form is given by
+\begin{align}
+ \lim_{r\to\infty}\check\Psi_1 =
+ \begin{pmatrix}
+  \frac{\xi g}{4\pi J_G^2\bar\phi_C r} \\
+  \frac{|\lambda|}{16\pi J_G^2}
+ \end{pmatrix}.
+\end{align}
+Thus, we have
+\begin{align}
+  \left(
+    \frac{\det\mathcal M^{(S,\varphi)}_0}{\det\widehat{\mathcal M}^{(S,\varphi)}_0}
+  \right)^{-1/2}
+  \to &\ 
+  \int d\theta
+  \left(
+    \lim_{r\to\infty}\frac{\det[\check\Psi_1(r)~\Psi_2(r)]}{r}
+  \right)^{-1/2}
+  \left(
+    \lim_{r\to0}\frac{\det[\Psi_1(r)~\Psi_2(r)]}{r}
+  \right)^{1/2}
+  \nonumber \\ & =
+  \int d\theta J_G \sqrt{\frac{16\pi}{|\lambda|}}.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%
+%Infinite sum
+\section{Infinite Sum over Angular Momentum}
+\label{apx_infiniteSum}
+\setcounter{equation}{0}
+
+In this appendix, we execute various infinite sums appearing in the
+calculation of functional determinants.
+
+We first evaluate the following sum;
+\begin{align}
+ I_B(z) = \sum_{J=0}^\infty\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}
+ \ln\frac{\Gamma(2J+1)\Gamma(2J+2)}{\Gamma(2J+1-z)\Gamma(2J+2+z)}.
+\end{align}
+Here, $J$ is half-integer, and $z$ is a complex number satisfying
+\begin{align}
+ -2<\Re(z)<1.
+ \label{eq_rez}
+\end{align}
+For $\varepsilon>0$, the sum converges since $1/(1+\varepsilon)^{2J}$
+goes to zero much faster than power of $2J$.
+
+First, we rewrite the log-gamma functions with integrals of digamma
+functions as
+\begin{align}
+ I_B(z) = \sum_{J=0}^{\infty}\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}
+ \int_\infty^{2J+1}dx
+ \left[
+  \psi_{\Gamma}(x)-\psi_{\Gamma}(x-z)+\psi_{\Gamma}(x+1)-\psi_{\Gamma}(x+1+z)
+ \right],
+\end{align}
+where $\psi_{\Gamma}(z)$ is the digamma function.
+
+Then, we use the following relation;
+\begin{align}
+ \psi_{\Gamma}(x)-\psi_{\Gamma}(y) = \int_0^1\frac{u^{y-1}-u^{x-1}}{1-u}du,
+\end{align}
+which is valid for $\Re(x)>0$ and $\Re(y)>0$.  We get
+\begin{align}
+ I_B(z) = \sum_{J=0}^{\infty}\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}
+ \int_\infty^{2J+1}dx\int_0^1du\frac{u^{x-z-1}(1-u^z)(1-u^{z+1})}{1-u}.
+\end{align}
+Notice that this is verified only in region \eqref{eq_rez}.
+
+Then, we interchange the two integrals\footnote{This is justified when
+ \begin{align}
+  \int_\infty^{2J+1}dx\int_0^1du
+  \left|
+  \frac{u^{x-z-1}(1-u^z)(1-u^{z+1})}{1-u}
+  \right|<\infty.
+ \end{align}}
+and integrate over $x$ first. We get
+\begin{align}
+ I_B(z) = \sum_{J=0}^{\infty}\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}
+ \int_0^1du\frac{u^{2J}(1-u^z)(1-u^{1+z})}{u^z(1-u)\ln u}.
+\end{align}
+Notice that the integral over $u$ does not diverge.
+
+Since we have regularized the sum, the final result should be
+finite. Thus, we can take the sum first. We get
+\begin{align}
+ I_B(z) = (1+\varepsilon)^2\int_0^1du
+ \frac{(1-u^z)(1-u^{1+z})(1+u+\varepsilon)}{u^z(1-u)(1+\varepsilon-u)^3\ln u}.
+\end{align}
+We can see that new poles appear at $u = 1+\varepsilon$, but the
+integral is still convergent for positive $\varepsilon$.
+
+In order to execute the integral over $u$, we use the following
+relation;
+\begin{align}
+ \frac{1-u^z}{\ln u} = -z\int_0^1dtu^{zt}.
+\end{align}
+We get
+\begin{align}
+ I_B(z) = -z(1+\varepsilon)^2\int_0^1du\int_0^1dt
+ \frac{(1-u^{1+z})(1+u+\varepsilon)}{u^{z(1-t)}(1-u)(1+\varepsilon-u)^3}.
+\end{align}
+
+Interchanging the integrals and integrating over $u$, we get
+\begin{eqnarray}
+ I_B(z)& = &z\int_0^1dt
+ \left[
+  \frac{(1+\varepsilon)(z-1+tz\varepsilon-\varepsilon)}{\varepsilon^2}
+  +\frac{(1+\varepsilon)^2(2+\varepsilon)[\psi_{\Gamma}(1+tz-z)
+     -\psi_{\Gamma}(1+tz)]}{\varepsilon^3}\right.\nonumber\\
+  &&\hspace{10ex}+\frac{2+(3+2z-2tz)\varepsilon
+   +(1+z-tz)^2\varepsilon^2}{(1+tz-z)\varepsilon^3}{}_2F_1
+  \left(
+   1,1+tz-z,2+tz-z,\frac{1}{1+\varepsilon}
+  \right)\nonumber\\
+  &&\hspace{10ex}\left.-\frac{(1+\varepsilon)
+   (2+\varepsilon-2tz\varepsilon+t^2z^2\varepsilon^2)}{(1+tz)\varepsilon^3}{}_2F_1
+  \left(
+   1,1+tz,2+tz,\frac{1}{1+\varepsilon}
+  \right)
+ \right],
+\end{eqnarray}
+where ${}_2F_1(a,b,c,z)$ is the hypergeometric function.
+
+Since we do not need higher order terms in $\varepsilon$, we expand it
+as
+\begin{eqnarray}
+ I_B(z)& = &\int_0^1dt
+ \left\{
+  -\frac{1}{\varepsilon^2}z(z+1)-\frac{1}{2\varepsilon}z(z+1)(4+z-2tz)
+  +\frac{\ln\varepsilon}{6}z^2(1+z)(1+2z-6tz+6t^2z)\right.\nonumber\\
+  &&\hspace{10ex}-z+z^2
+  \left[
+   -\frac{53}{36}+t+\frac{1}{6}(1-t)H(tz-z)+\frac{1}{6}tH(tz)
+  \right]\nonumber\\
+  &&\hspace{10ex}+\frac{z^3}{12}[-7+14t+6(1-t)^2H(tz-z)+6t^2H(tz)]\nonumber\\
+  &&\hspace{10ex}\left.+\frac{z^4}{9}[-1+3(1-t)t+3(1-t)^3H(tz-z)+3t^3H(tz)]
+  +\mathcal O(\varepsilon)
+ \right\},
+\end{eqnarray}
+where $H(z)$ is the harmonic number.
+
+Executing the final integral, we obtain
+\begin{eqnarray}
+ I_B(z)& = &-\frac{1}{\varepsilon^2}z(z+1)
+ -\frac{2}{\varepsilon}z(z+1)
+ +\frac{1}{6}z^2(z+1)^2\ln\varepsilon
+ +\mathcal S_B(z)+\mathcal{O}(\epsilon),
+\end{eqnarray}
+where
+\begin{eqnarray}
+ \mathcal S_B(z)& = &\frac{1}{6}z(1+z)(1+2z)
+ \left[
+  \ln\Gamma(1+z)-\ln\Gamma(1-z)
+ \right]\nonumber\\
+ &&-
+ \left(
+  z+z^2+\frac{1}{6}
+ \right)
+ \left[
+  \psi_{\Gamma}^{(-2)}(1+z)+\psi_{\Gamma}^{(-2)}(1-z)
+ \right]\nonumber\\
+ &&+(1+2z)
+ \left[
+  \psi_{\Gamma}^{(-3)}(1+z)-\psi_{\Gamma}^{(-3)}(1-z)
+ \right]\nonumber\\
+ &&-2
+ \left[
+  \psi_{\Gamma}^{(-4)}(1+z)+\psi_{\Gamma}^{(-4)}(1-z)
+ \right]\nonumber\\
+ &&+\frac{1}{6}\gamma_Ez^2(z+1)^2-z-\frac{35}{36}z^2-\frac{z^4}{18}\nonumber\\
+ &&+\frac{1}{2}\ln 2\pi+2\ln A_G+\frac{\zeta(3)}{2\pi^2}.
+\end{eqnarray}
+Here, $A_G$ is the Glaisher number.
+
+We can repeat the same procedure for the fermion case, where the
+summation is given by
+\begin{align}
+ I_F(z) = \sum_{J=0}^\infty\frac{(2J+1)(2J+2)}{(1+\varepsilon)^{2J}}\ln
+ \left[
+  \frac{[\Gamma(2J+2)]^2}{\Gamma(2J+2+z)\Gamma(2J+2-z)}
+ \right]^2,
+\end{align}
+for $-2<\Re(z)<2$.
+
+The result is
+\begin{eqnarray}
+ I_F(z)& = &-\frac{2}{\varepsilon^2}z^2-\frac{5}{\varepsilon}z^2
+ +\frac{1}{3}z^2(z^2-2)\ln\varepsilon+\mathcal S_F(z)+\mathcal{O}(\epsilon).
+\end{eqnarray}
+\begin{eqnarray}
+ \mathcal S_F(z)& = &\frac{2}{3}z(z^2-1)
+ \left[
+  \ln\Gamma(1+z)-\ln\Gamma(1-z)
+ \right]\nonumber\\
+ &&-2
+ \left(
+  z^2-\frac{1}{3}
+ \right)\left[\psi_{\Gamma}^{(-2)}(1+z)+\psi_{\Gamma}^{(-2)}(1-z)
+ \right]\nonumber\\
+ &&+4z[\psi_{\Gamma}^{(-3)}(1+z)-\psi_{\Gamma}^{(-3)}(1-z)]\nonumber\\
+ &&-4[\psi_{\Gamma}^{(-4)}(1+z)+\psi_{\Gamma}^{(-4)}(1-z)]\nonumber\\
+ &&+\frac{1}{3}z^2(z^2-2)\gamma_E-\frac{z^2}{9}(z^2+31)\nonumber\\
+ &&+4\ln A_G+\frac{\zeta(3)}{\pi^2}.
+\end{eqnarray}
+
+Next, we consider
+\begin{align}
+ I_h = \sum_{J=1}^{\infty}\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}
+ \ln\frac{2J(2J-1)}{(2J+3)(2J+2)},
+\end{align}
+which is similar to $I_B(z)$, but $z$ is outside of the valid region.
+
+Using a similar technique, we have
+\begin{align}
+ I_h & = -\sum_{J=1}^{\infty}\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}\int_0^3dx
+ \left[
+  \frac{1}{x+2J}+\frac{1}{x+2J-1}
+ \right]\nonumber                                                            \\
+     & = -\frac{6}{\varepsilon^2}-\frac{12}{\varepsilon}+6\ln\varepsilon
+ +\frac{3}{2}+6\gamma_E+12\ln A_G+9\ln2+5\ln3+\mathcal O(\varepsilon)
+\end{align}
+Here, we executed the sum first.
+
+Finally, we consider
+\begin{align}
+ I_G = \sum_{J=1/2}^{\infty}\frac{(2J+1)^2}{(1+\varepsilon)^{2J}}\ln\frac{2J}{2J+2},
+\end{align}
+which appears in the gauge sector.
+
+Repeating the same procedure, we have
+\begin{align}
+ I_G & = -\sum_{J=1/2}^{\infty}
+ \frac{(2J+1)^2}{(1+\varepsilon)^{2J}}\int_0^2dx\frac{1}{x+2J}\nonumber           \\
+     & = -\frac{2}{\varepsilon^2}-\frac{4}{\varepsilon}+\frac{2}{3}\ln\varepsilon
+ -\frac{3}{2}+\frac{2}{3}\gamma_E+\ln2+4\ln A_G+\mathcal{O}(\epsilon).
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%
+%MS-bar
+\section{Renormalization with $\msbar$-scheme}
+\label{apx_divpart}
+\setcounter{equation}{0}
+
+In this appendix, we relate $\eps{X}$ to $\epsD$.
+
+\subsection{Scalar}
+
+Let us start with the scalar contribution. We first calculate
+$\left[\ln\mathcal A^{(\sigma)}\right]_{{\rm div}}$ with using
+$\eps{\sigma}$ as a regulator. The expansion of
+eq.~\eqref{eq_expansionEachJ} is exactly the same as that with respect
+to $\kappa$. Thus, we have
+\begin{align}
+ \left[
+  \ln\frac{\det[-\Delta_J+\kappa\bar\phi^2]}{\det[-\Delta_J]}
+ \right]_{\mathcal O(\kappa^2)}
+ =\frac{2\kappa}{|\lambda|}\frac{1}{2J+1}+
+ \left(
+  \frac{2\kappa}{|\lambda|}
+ \right)^2
+ \left(
+  \frac{1}{2(2J+1)^2}+\frac{1}{2J+1}-\psi^{(1)}(2J+1)
+ \right),
+\end{align}
+where $\psi^{(n)}(z)$ is the polygamma function.
+
+Summing over $J$, we get
+\begin{align}
+ \left[
+  \ln\mathcal A^{(\sigma)}
+ \right]_{{\rm div},\eps{\sigma}}
+  & = -\frac{1}{2}\sum_{J=0}^{\infty}\frac{(2J+1)^2}{(1+\eps{\sigma})^{2J}}
+ \left[
+  \ln\frac{\det[-\Delta_J+\kappa\bar\phi^2]}{\det[-\Delta_J]}
+ \right]_{\mathcal O(\kappa^2)}\nonumber                                    \\
+  & = -\frac{1}{2}
+ \left[
+  \frac{2\kappa}{|\lambda|}
+  \left(
+   \frac{1}{\eps{\sigma}^2}+\frac{2}{\eps{\sigma}}+\frac{\kappa}{3|\lambda|}\ln\eps{\sigma}
+  \right)+\frac{2\kappa}{|\lambda|}
+  \left(
+   1+\frac{\kappa}{18|\lambda|}
+  \right)
+ \right]+\mathcal O(\eps{\sigma}).
+\end{align}
+As is expected, it has the same divergences as $\left[\ln\mathcal
+ A^{(\sigma)}\right]_{\eps{\sigma}}$ has.
+
+Next, we directly calculate $\left[\ln\mathcal A^{(\sigma)}\right]_{\rm
+div}$ by using the dimensional regularization. We have
+\begin{align}
+ \left[
+  \ln\mathcal A^{(\sigma)}
+ \right]_{{\rm div},\eps{\sigma}}
+  & = -\frac{1}{2}
+ \left[
+  \tr
+  \left(
+   \frac{1}{-\partial^2}\kappa\bar\phi^2
+  \right)-\frac{1}{2}\tr
+  \left(
+   \frac{1}{-\partial^2}\kappa\bar\phi^2\frac{1}{-\partial^2}\kappa\bar\phi^2
+  \right)
+ \right]\nonumber                                                              \\
+  & = -\frac{1}{2}
+ \left[
+  \kappa\int\frac{d^nk}{(2\pi)^n}\frac{1}{k^2}F[\bar\phi^2](0)\right.\nonumber \\
+  & \hspace{7ex}\left.-\frac{\kappa^2}{2}
+  \int\frac{d^nk}{(2\pi)^n}\frac{d^nk'}{(2\pi)^n}
+  \frac{1}{k^2}F[\bar\phi^2](k-k')\frac{1}{k'^2}F[\bar\phi^2](k'-k)
+ \right]\nonumber                                                              \\
+  & = -\frac{1}{2}
+ \left[
+  -\frac{2\kappa^2}{3|\lambda|^2}
+  \left(
+   \frac{1}{2\epsD}+\frac{5}{6}+\gamma_E+\ln\frac{\mu R}{2}
+  \right)
+ \right],
+\end{align}
+where $F[\cdots]$ is the Fourier transform of the argument,
+$n=4-2\varepsilon_D$, and
+\begin{align}
+ R = \sqrt{\frac{8}{|\lambda|}}\frac{1}{\bar\phi_C}.
+\end{align}
+We get a relation between the two regulators as
+\begin{align}
+ \left(
+  \frac{1}{\eps{\sigma}^2}+\frac{2}{\eps{\sigma}}
+  +\frac{\kappa}{3|\lambda|}\ln\eps{\sigma}\right)
+ \to -1-\frac{\kappa}{3|\lambda|}
+ \left[
+  \frac{1}{2\epsD}+1+\gamma_E+\ln\frac{\mu R}{2}
+ \right].
+ \label{eq_ScalarRegulatorRel}
+\end{align}
+
+\subsection{Higgs}
+
+The relation for the Higgs contribution can be obtained from
+eq.~\eqref{eq_ScalarRegulatorRel} with replacement
+$\kappa\to-3|\lambda|$;
+\begin{align}
+ \frac{1}{\eps{h}^2}+\frac{2}{\eps{h}}
+ -\ln\eps{h}\to\frac{1}{2\epsD}+\gamma_E+\ln\frac{\mu R}{2}.
+\end{align}
+Notice that the zero modes have nothing to do with the divergence.
+
+\subsection{Fermion}
+
+Next, we obtain the relation for the fermion contribution. As discussed
+in \cite{Andreassen:2017rzq}, it is better to expand with respect to
+$y$. The expansion in eq.~\eqref{eq_deltaMExpansion} is equivalent to
+\begin{align}
+ \left[\ln\mathcal A^{(\psi)}\right]_{{\rm div},\eps{\psi}}
+  & = \sum_{J=0}^{\infty} \frac{(2J+1)(2J+2)}{(1+\eps{\psi})^{2J}}\nonumber \\
+  & \hspace{3ex}
+ \left\{
+  \left[
+   \ln\frac{\det\mathcal M^{(\psi)}_J}{\det\widehat{\mathcal M}^{(\psi)}_J}
+  \right]_{\mathcal O(y^2)}+
+  \left[
+   \ln\frac{\det\mathcal M^{(\psi)}_{J,{\rm diag}}}{\det\widehat{\mathcal M}^{(\psi)}_{J,{\rm diag}}}
+  \right]_{\mathcal O(y^4)}-
+  \left[
+   \ln\frac{\det\mathcal M^{(\psi)}_{J,{\rm diag}}}{\det\widehat{\mathcal M}^{(\psi)}_{J,{\rm diag}}}
+  \right]_{\mathcal O(y^2)}
+ \right\},
+\end{align}
+where
+\begin{align}
+ \mathcal M^{(\psi)}_{J,{\rm diag}} =
+ \begin{pmatrix}
+  -\Delta_J+\frac{y^2}{2}\bar\phi^2 & 0                                       \\
+  0                                 & -\Delta_{J+1/2}+\frac{y^2}{2}\bar\phi^2
+ \end{pmatrix},
+\end{align}
+and the hatted operator is obtained by replacement $\bar\phi\to0$.  From
+eq.~\eqref{eq_scalarDeterminant}, we have
+\begin{align}
+ \frac{\det\mathcal M^{(\psi)}_{J,{\rm diag}}}{\det\widehat{\mathcal M}^{(\psi)}_{J,{\rm diag}}}
+ = \frac{\Gamma(2J+1)\Gamma(2J+2)\Gamma(2J+2)\Gamma(2J+3)}
+ {\Gamma(2J+1-\tilde z_y)\Gamma(2J+2+\tilde z_y)\Gamma(2J+2-\tilde z_y)\Gamma(2J+3+\tilde z_y)},
+\end{align}
+where
+\begin{align}
+ \tilde{z}_y = -\frac{1}{2}\left(1-\sqrt{1-4\frac{y^2}{|\lambda|}}\right).
+\end{align}
+Together with eq.~\eqref{eq_FermionDeterminant}, we have
+\begin{align}
+ \left[\ln\mathcal A^{(\psi)}\right]_{{\rm div},\eps{\psi}}
+  & = \sum_{J=0}^{\infty}
+ \frac{(2J+1)(2J+2)}{(1+\eps{\psi})^{2J}}
+ \left[
+  \frac{2y^2}{|\lambda|}\psi_{\Gamma}^{(1)}(2J+2)\right.\nonumber \\
+  & \hspace{3ex}-\frac{y^4}{|\lambda|^2}
+  \left(
+   \psi_{\Gamma}^{(0)}(2J+1)-\psi_{\Gamma}^{(0)}(2J+3)
+  \right)\nonumber                                                \\
+  & \hspace{3ex}\left.-\frac{y^4}{2|\lambda|^2}
+  \left(
+   \psi_{\Gamma}^{(1)}(2J+1)+2\psi_{\Gamma}^{(1)}(2J+2)+\psi_{\Gamma}^{(1)}(2J+3)
+  \right)
+ \right]\nonumber                                                 \\
+  & = \frac{y^2}{|\lambda|}
+ \left(
+  \frac{2}{\eps{\psi}^2}+\frac{5}{\eps{\psi}}+\frac{1}{3}\frac{y^2+2|\lambda|}{|\lambda|}\ln\eps{\psi}
+ \right)+\frac{31}{9}\frac{y^2}{|\lambda|}+\frac{1}{18}\frac{y^4}{|\lambda|^2}+\mathcal O(\eps{\psi}).
+\end{align}
+Meanwhile, we can calculate it by using the dimensional regularization;
+\begin{align}
+ \left[\ln\mathcal A^{(\psi)}\right]_{{\rm div},\epsD}
+  & = y^2\tr
+ \left[
+  \frac{1}{-\partial^2}\bar\phi^2
+ \right]-\frac{y^4}{4}\tr
+ \left[
+  \frac{1}{-\partial^2}\bar\phi^2\frac{1}{-\partial^2}\bar\phi^2
+ \right]-\frac{y^2}{2}\tr
+ \left[
+  \frac{1}{-\partial^2}(\partial_\mu\bar\phi)\frac{1}{-\partial^2}(\partial_\mu\bar\phi)
+ \right]\nonumber               \\
+  & = -\frac{y^4}{3|\lambda|^2}
+ \left(
+  \frac{1}{2\epsD}+\frac{5}{6}+\gamma_E+\ln\frac{\mu R}{2}
+ \right)-\frac{2y^2}{3|\lambda|}
+ \left(
+  \frac{1}{2\epsD}+\frac{13}{12}+\gamma_E+\ln\frac{\mu R}{2}
+ \right).
+\end{align}
+Thus, we have
+\begin{align}
+  &
+ \left(
+  \frac{2}{\eps{\psi}^2}+\frac{5}{\eps{\psi}}+\frac{1}{3}\frac{y^2+2|\lambda|}{|\lambda|}\ln\eps{\psi}
+ \right)\nonumber                            \\
+  & \hspace{3ex} \to -\frac{y^2}{3|\lambda|}
+ \left(
+  \frac{1}{2\epsD}+1+\gamma_E+\ln\frac{\mu R}{2}
+ \right)-\frac{2}{3}
+ \left(
+  \frac{1}{2\epsD}+\frac{25}{4}+\gamma_E+\ln\frac{\mu R}{2}
+ \right).
+\end{align}
+
+\subsection{Gauge field}
+
+Finally, we obtain the relation for the gauge contribution.  Since the
+fluctuation operator \eqref{eq_gaugeFluct} has terms proportional to
+$\partial_\mu$, the expansion given in eq.~\eqref{eq_deltaMExpansion}
+is not enough to subtract all the divergences. In principle, one can
+expand up to $\mathcal O(\delta \mathcal M^4)$, but it is not so
+efficient. Instead, we use a different gauge fixing function given by
+\begin{align}
+ \mathcal F_{\rm BG} = (\partial_\mu A_\mu-\xi g\bar\phi\varphi),
+\end{align}
+which we call the background gauge. We take $\xi = 1$ in the
+following, but we can show that the result does not depend on $\xi$
+\cite{????}.
+
+Using the same basis given in eq.~\eqref{eq_gaugeBasis}, we have
+\begin{align}
+ \ln\mathcal A_{\rm BG}^{(A_\mu,\varphi)}
+  & = -\frac{1}{2}
+ \ln\frac{\det\mathcal M^{(A_\mu,\varphi)}_{\rm BG}}
+ {\det\widehat{\mathcal M}^{(A_\mu,\varphi)}_{\rm BG}} \\
+  & = -\frac{1}{2}
+ \ln\frac{\det\mathcal M^{(S,\varphi)}_{0,\rm BG}}
+ {\det\widehat{\mathcal M}^{(S,\varphi)}_{0,\rm BG}}
+ -\frac{1}{2}\sum_{J=1/2}^{\infty}(2J+1)^2
+ \left[
+  \ln\frac{\det\mathcal M^{(S,L,\varphi)}_{J,\rm BG}}
+  {\det\widehat{\mathcal M}^{(S,L,\varphi)}_{J,\rm BG}}
+  +2\ln\frac{\det\mathcal M^{(T)}_{J,\rm BG}}
+  {\det\widehat{\mathcal M}^{(T)}_{J,\rm BG}}
+ \right],
+\end{align}
+and we also have Faddeev-Popov contributions,
+\begin{align}
+ \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+  & = \ln\frac{\det\mathcal M^{(c,\bar{c})}_{\rm BG}}
+ {\det\widehat{\mathcal M}^{(c,\bar{c})}_{\rm BG}}    \\
+  & = \sum_{J=0}^{\infty}(2J+1)^2
+ \ln\frac{\det\mathcal M^{(c,\bar{c})}_{J,\rm BG}}
+ {\det\widehat{\mathcal M}^{(c,\bar{c})}_{J,\rm BG}}.
+\end{align}
+Here,
+\begin{align}
+ \mathcal M^{(c,\bar{c})}_{\rm BG} & = -\partial^2+g^2\bar\phi^2,
+\end{align}
+\begin{align}
+ \mathcal M^{(A_\mu,\varphi)}_{\rm BG} =
+ \begin{pmatrix}
+  -\partial^2\delta_{\mu\nu}+g^2\bar\phi^2 & 2g(\partial_\nu\bar\phi)          \\
+  2g(\partial_\mu\bar\phi)                 & -\partial^2+m_{a}^2+g^2\bar\phi^2
+ \end{pmatrix}.
+\end{align}
+For the partial waves, we have
+\begin{align}
+ \mathcal M^{(T)}_{J,\rm BG} & = \mathcal M^{(c,\bar{c})}_{J,\rm BG} = \mathcal M^{(T)}_J,
+\end{align}
+\begin{align}
+ \mathcal M^{(S,L,\varphi)}_{J,\rm BG} & =
+ \begin{pmatrix}
+  -\Delta_J+\frac{3}{r^2}+g^2\bar\phi^2 & -\frac{2L}{r^2}                         & 2g\bar\phi'                   \\
+  -\frac{2L}{r^2}                         & -\Delta_J-\frac{1}{r^2}+g^2\bar\phi^2 & 0                               \\
+  2g\bar\phi'                           & 0                                       & -\Delta_J+m_a^2+g^2\bar\phi^2
+ \end{pmatrix},
+\end{align}
+and
+\begin{align}
+ \mathcal M^{(S,\varphi)}_{0,\rm BG} & =
+ \begin{pmatrix}
+  -\Delta_{1/2}+g^2\bar\phi^2 & 2g\bar\phi'                   \\
+  2g\bar\phi'                 & -\Delta_0+m_a^2+g^2\bar\phi^2
+ \end{pmatrix}.
+\end{align}
+The hatted operators are defined through replacements $\bar\phi\to0$ and
+$\bar\phi'\to0$.
+
+A prominent feature of this gauge fixing is that we can take a basis so
+that $\widehat{\mathcal M}^{(S,L,\varphi)}_{J,\rm BG}$ is diagonalized;
+\begin{align}
+ B^t\mathcal M^{(S,L,\varphi)}_{J,\rm BG} B =
+ \begin{pmatrix}
+  -\Delta_{J-1/2}+g^2\bar\phi^2    & 0                                     & 2\sqrt{\frac{J}{2J+1}}g\bar\phi'    \\
+  0                                  & -\Delta_{J+1/2}+g^2\bar\phi^2       & -2\sqrt{\frac{J+1}{2J+1}}g\bar\phi' \\
+  2\sqrt{\frac{J}{2J+1}}g\bar\phi' & -2\sqrt{\frac{J+1}{2J+1}}g\bar\phi' & -\Delta_J+m_a^2+g^2\bar\phi^2
+ \end{pmatrix},
+\end{align}
+where
+\begin{align}
+ B =
+ \begin{pmatrix}
+  \sqrt{\frac{J}{2J+1}}   & -\sqrt{\frac{J+1}{2J+1}} & 0 \\
+  \sqrt{\frac{J+1}{2J+1}} & \sqrt{\frac{J}{2J+1}}    & 0 \\
+  0                       & 0                        & 1
+ \end{pmatrix}.
+\end{align}
+Furthermore, the contributions from $(c,\bar{c})$ and $(T)$ are
+exactly canceled out for $J>0$.
+
+Repeating the same procedure using solutions given in
+\cite{Endo:2017gal}, we can show that
+\begin{align}
+ \ln\frac{\det\mathcal M^{(S,L,\varphi)}_{J,\rm BG}}{\det\widehat{\mathcal M}^{(S,L,\varphi)}_{J,\rm BG}}
+ +2\ln\frac{\det\mathcal M^{(T)}_{J,\rm BG}}{\det\widehat{\mathcal M}^{(T)}_{J,\rm BG}}
+ -2\ln\frac{\det\mathcal M^{(c,\bar{c})}_{J,\rm BG}}{\det\widehat{\mathcal M}^{(c,\bar{c})}_{J,\rm BG}}
+ = \ln\frac{\det\mathcal M^{(S,L,\varphi)}_{J}}{\det\widehat{\mathcal M}^{(S,L,\varphi)}_{J}}
+ +2\ln\frac{\det\mathcal M^{(T)}_{J}}{\det\widehat{\mathcal M}^{(T)}_{J}}.
+\end{align}
+In particular, the structure of the divergence is the same. It means
+that
+\begin{align}
+ \lim_{\eps{A}\to0}
+ \left\{
+  \left[
+   \ln\mathcal A'^{(A_\mu,\varphi)}
+  \right]_{\eps{A}}-
+  \left[
+   \ln\mathcal A'^{(A_\mu,\varphi)}_{\rm BG}
+  \right]_{\eps{A}}-
+  \left[
+   \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+  \right]_{\eps{A}}
+ \right\} = (\rm finite).
+\end{align}
+Furthermore, as discussed in \cite{Endo:2017tsz}, we can show that
+\begin{align}
+ \lim_{\epsD\to0}
+ \left\{
+  \left[
+   \ln\mathcal A'^{(A_\mu,\varphi)}
+  \right]_{\epsD}-
+  \left[
+   \ln\mathcal A'^{(A_\mu,\varphi)}_{\rm BG}
+  \right]_{\epsD}-
+  \left[
+   \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+  \right]_{\epsD}
+ \right\} = (\rm finite).
+\end{align}
+Since the finite part cannot depend on the regularization, we have
+\begin{align}
+  &
+ \left[
+  \ln\mathcal A'^{(A_\mu,\varphi)}
+ \right]_{\epsD}-
+ \left[
+  \ln\mathcal A^{(A_\mu,\varphi)}_{\rm BG}
+ \right]_{{\rm div},\epsD}-
+ \left[
+  \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+ \right]_{{\rm div},\epsD}\nonumber \\
+  & =
+ \left[
+  \ln\mathcal A'^{(A_\mu,\varphi)}
+ \right]_{\eps{A}}-
+ \left[
+  \ln\mathcal A^{(A_\mu,\varphi)}_{\rm BG}
+ \right]_{{\rm div},\eps{A}}-
+ \left[
+  \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+ \right]_{{\rm div},\eps{A}},
+\end{align}
+where $[\cdots]_{{\rm div},\eps{A}}$ is defined accordingly to
+eq.~\eqref{eq_regDiv}.
+
+Let us evaluate the divergent part with $\eps{A}$ regularization.
+Before proceeding, we define the following quantities.
+\begin{align}
+ K_J^{\rm (diag)}(\delta)
+  & = \left[
+  \ln\frac{\det[-\Delta_J+\delta\bar\phi^2]}{\det[-\Delta_J]}
+ \right]_{\mathcal O(\delta^2)}
+ \\
+  & = \frac{2\delta}{|\lambda|}\frac{1}{2J+1}+
+ \left(
+  \frac{2\delta}{|\lambda|}
+ \right)^2
+ \left(
+  \frac{1}{2(2J+1)^2}+\frac{1}{2J+1}-\psi^{(1)}(2J+1)
+ \right),
+\end{align}
+and
+\begin{align}
+ K_J^{\rm (off)}(\delta)
+  & =
+ \left[
+  \ln\frac{\det
+   \begin{pmatrix}
+    -\Delta_J
+     & \delta\bar\phi' \\
+    \delta\bar\phi'
+     & -\Delta_{J+1/2}
+   \end{pmatrix}}{\det
+   \begin{pmatrix}
+    -\Delta_J
+     & 0               \\
+    0
+     & -\Delta_{J+1/2}
+   \end{pmatrix}}
+ \right]_{\mathcal O(\delta^2)}\nonumber \\
+  & =
+ \left[
+  \ln\frac{\det
+   \begin{pmatrix}
+    -\Delta_J+\delta^2\bar\phi^2
+     & \delta\bar\phi'                    \\
+    \delta\bar\phi'
+     & -\Delta_{J+1/2}+\delta^2\bar\phi^2
+   \end{pmatrix}}{\det
+   \begin{pmatrix}
+    -\Delta_J
+     & 0               \\
+    0
+     & -\Delta_{J+1/2}
+   \end{pmatrix}}
+ \right]_{\mathcal O(\delta^2)}\nonumber \\
+  & \hspace{3ex}-
+ \left[
+  \ln\frac{\det[-\Delta_J+\delta^2\bar\phi^2]}{\det[-\Delta_J]}
+ \right]_{\mathcal O(\delta^2)}-
+ \left[
+  \ln\frac{\det[-\Delta_{J+1/2}+\delta^2\bar\phi^2]}{\det[-\Delta_{J+1/2}]}
+ \right]_{\mathcal O(\delta^2)}\nonumber \\
+  & = \frac{\delta^2}{|\lambda|}
+ \left[
+  4\psi_\Gamma^{(1)}(2J+2)-\frac{2}{2J+1}-\frac{1}{J+1}
+ \right].
+\end{align}
+Then,
+\begin{align}
+  &
+ \left[
+  \ln\mathcal A^{(A_\mu,\varphi)}_{\rm BG}
+ \right]_{{\rm div},\eps{A}}+
+ \left[
+  \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+ \right]_{{\rm div},\eps{A}}\nonumber                                         \\
+  & = -\frac{1}{2}
+ \left\{
+  \left[
+   \ln\frac{\det \mathcal M^{(S,\varphi)}_{0,\rm BG}}{\det \widehat{\mathcal M}^{(S,\varphi)}_{0,\rm BG}}
+  \right]_{\mathcal O(\delta \mathcal M^2)}-2
+  \left[
+   \ln\frac{\det \mathcal M^{(c,\bar{c})}_{0,\rm BG}}{\det \widehat{\mathcal M}^{(c,\bar{c})}_{0,\rm BG}}
+  \right]_{\mathcal O(\delta \mathcal M^2)}\right.\nonumber                   \\
+  & \hspace{7ex}\left.+\sum_{J=1/2}^{\infty}\frac{(2J+1)^2}{(1+\eps{A})^{2J}}
+  \left[
+   \ln\frac{\det \mathcal M^{(S,L,\varphi)}_{J,\rm BG}}{\det \widehat{\mathcal M}^{(S,L,\varphi)}_{J,\rm BG}}
+  \right]_{\mathcal O(\delta \mathcal M^2)}
+ \right\},
+\end{align}
+where
+\begin{align}
+ \left[
+  \ln\frac{\det \mathcal M^{(S,\varphi)}_{0,\rm BG}}{\det \widehat{\mathcal M}^{(S,\varphi)}_{0,\rm BG}}
+ \right]_{\mathcal O(\delta \mathcal M^2)}
+  & = K_{1/2}^{\rm (diag)}(g^2)+K_{0}^{\rm (diag)}(g^2-|\lambda|)+K_0^{\rm (off)}(2g), \\
+ \left[
+  \ln\frac{\det \mathcal M^{(S,L,\varphi)}_{J,\rm BG}}{\det \widehat{\mathcal M}^{(S,L,\varphi)}_{J,\rm BG}}
+ \right]_{\mathcal O(\delta \mathcal M^2)}
+  & = K_{J+1/2}^{\rm (diag)}(g^2)+K_{J-1/2}^{\rm (diag)}(g^2)
+ +K_{J}^{\rm (diag)}(g^2-|\lambda|)\nonumber                                               \\
+  & \hspace{3ex}+K_J^{\rm (off)}\left(-2\sqrt{\frac{J+1}{2J+1}}g\right)
+ +K_{J-1/2}^{\rm (off)}\left(2\sqrt{\frac{J}{2J+1}}g\right),                               \\
+ \left[
+  \ln\frac{\det \mathcal M^{(c,\bar{c})}_{0,\rm BG}}{\det \widehat{\mathcal M}^{(c,\bar{c})}_{0,\rm BG}}
+ \right]_{\mathcal O(\delta \mathcal M^2)}
+  & = K_{0}^{\rm (diag)}(g^2).
+\end{align}
+Notice that $m_a^2 = -|\lambda|\bar\phi^2$, and that the contributions
+from $(c,\bar{c})$ and $(T)$ are canceled out for $J>0$.  Summing
+over $J$, we get
+\begin{align}
+ \left[
+  \ln\mathcal A^{(A_\mu,\varphi)}_{\rm BG}
+ \right]_{{\rm div},\eps{A}}+
+ \left[
+  \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+ \right]_{{\rm div},\eps{A}}
+  & = -\frac{1}{2}
+ \left[
+  \left(
+   \frac{6g^2}{|\lambda|}-2
+  \right)
+  \left(
+   \frac{1}{\eps{A}^2}+\frac{2}{\eps{A}}
+  \right)+
+  \left(
+   \frac{2}{3}+\frac{2g^4}{|\lambda|^2}
+  \right)\ln\eps{A}\right.\nonumber                                                                 \\
+  & \hspace{7ex}\left.-\frac{17}{9}-\frac{2g^2}{3|\lambda|}-\frac{g^4}{3|\lambda|^2}(59-6\pi^2)
+ \right]+\mathcal O(\eps{A}).
+\end{align}
+
+On the other hand, we have the result with the dimensional
+regularization,
+\begin{align}
+  & \left[
+  \ln\mathcal A^{(A_\mu,\varphi)}_{\rm BG}
+ \right]_{{\rm div},\epsD}+
+ \left[
+  \ln\mathcal A_{\rm BG}^{(c,\bar{c})}
+ \right]_{{\rm div},\epsD}\nonumber \\
+  & = -\frac{1}{2}
+ \left[
+  (3g^2-|\lambda|)\tr
+  \left(
+   \frac{1}{-\partial^2}\bar\phi^2
+  \right)-\frac{1}{2}(3g^4-2g^2|\lambda|+|\lambda|^2)\tr
+  \left(
+   \frac{1}{-\partial^2}\bar\phi^2\frac{1}{-\partial^2}\bar\phi^2
+  \right)\right.\nonumber           \\
+  & \hspace{7ex}\left.-4g^2\tr
+  \left(
+   \frac{1}{-\partial^2}(\partial_\mu\bar\phi)\frac{1}{-\partial^2}(\partial_\mu\bar\phi)
+  \right)
+ \right]\nonumber                   \\
+  & = -\frac{1}{2}
+ \left[
+  -\frac{4g^2}{3|\lambda|}-2
+  \left(
+   \frac{1}{3}+\frac{2g^2}{|\lambda|}+\frac{g^4}{|\lambda|^2}
+  \right)
+  \left(
+   \frac{1}{2\epsD}+\frac{5}{6}+\gamma_E+\ln\frac{\mu R}{2}
+  \right)
+ \right].
+\end{align}
+
+Thus, we get
+\begin{align}
+  &
+ \left(
+  \frac{6g^2}{|\lambda|}-2
+ \right)
+ \left(
+  \frac{1}{\eps{A}^2}+\frac{2}{\eps{A}}
+ \right)+
+ \left(
+  \frac{2}{3}+\frac{2g^4}{|\lambda|^2}
+ \right)\ln\eps{A}\nonumber \\
+  & \hspace{3ex} \to -2
+ \left(
+  \frac{1}{3}+\frac{2g^2}{|\lambda|}+\frac{g^4}{|\lambda|^2}
+ \right)
+ \left(
+  \frac{1}{2\epsD}+1+\gamma_E+\ln\frac{\mu R}{2}
+ \right)+2+2\frac{g^4}{|\lambda|^2}(10-\pi^2).
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%
+%Threshold corrections
+\section{Threshold Corrections}
+\label{apx_threshold}
+\setcounter{equation}{0}
+
+In this appendix, we summarize the one-loop threshold corrections for
+the models with extra fermions.  All of the threshold corrections in our
+analysis can be written as
+\begin{align}
+ g^{\rm (below)} = g + \frac{1}{16\pi^2} \Delta_g,
+\end{align}
+where $g^{\rm (below)}$ is a coupling constant used below the matching
+scale, while $g$ is that used above the scale.  For the notational
+simplicity, we will only show the function $\Delta$ for each coupling
+constant.  The function $\Delta$ also contains the extra fermion mass
+$M_{\rm ex}$ and the matching scale $\mu$, which is equal to $M_{\rm ex}$
+in our analysis.
+
+\begin{itemize}
+ \item Vector-like quarks $Q_{\rm ex}, \overline{Q}_{\rm
+       ex}, D_{\rm ex}, \overline{D}_{\rm ex}$
+\end{itemize}
+\begin{align}
+ \Delta_{g_1} &= - \frac{1}{5} g_1^2 \log \frac{\mu^2}{M_{\rm ex}^2},\\
+ \Delta_{g_2} &= - g_2^2 \log \frac{\mu^2}{M_{\rm ex}^2}, \\
+ \Delta_{g_3} &= - g_3^2 \log \frac{\mu^2}{M_{\rm ex}^2}, \\
+ \Delta_{y_t} &= - 6 y_t y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right],\\
+ \Delta_{y_b} &= - 6 y_b y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right],\\
+ \Delta_{y_\tau} &= - 6 y_\tau y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right],\\
+ \Delta_{\lambda} &= - 24 \lambda y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right] + 12 y_{\rm ex}^4 \left[
+ \frac{1}{2} \log \frac{\mu^2}{M_{\rm ex}^2} - \frac{4}{3} \right].
+\end{align}
+
+\begin{itemize}
+ \item Vector-like leptons $L_{\rm ex}, \overline{L}_{\rm
+       ex}, E_{\rm ex}, \overline{E}_{\rm ex}$
+\end{itemize}
+\begin{align}
+ \Delta_{g_1} &= - \frac{3}{5} g_1^2 \log \frac{\mu^2}{M_{\rm ex}^2},\\
+ \Delta_{g_2} &= - \frac{1}{3} g_2^2 \log \frac{\mu^2}{M_{\rm ex}^2}, \\
+ \Delta_{g_3} &= 0, \\
+ \Delta_{y_t} &= - 2 y_t y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right],\\
+ \Delta_{y_b} &= - 2 y_b y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right],\\
+ \Delta_{y_\tau} &= - 2 y_\tau y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right],\\
+ \Delta_{\lambda} &= - 8 \lambda y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{3} \right] + 4 y_{\rm ex}^4 \left[
+ \frac{1}{2} \log \frac{\mu^2}{M_{\rm ex}^2} - \frac{4}{3} \right].
+\end{align}
+
+\begin{itemize}
+ \item Right-handed neutrino
+\end{itemize}
+\begin{align}
+ \Delta_{g_i} &= 0\ (i = 1,2,3),\\
+ \Delta_{y_t} &= - y_t y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} + \frac{1}{4} \right],\\
+ \Delta_{y_b} &= - y_b y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} + \frac{1}{4} \right],\\
+ \Delta_{y_\tau} &= y_\tau y_{\rm ex}^2 \left[ \frac{1}{4} \log
+ \frac{\mu^2}{M_{\rm ex}^2} + \frac{3}{8} \right],\\
+ \Delta_{\lambda} &= - 4 \lambda y_{\rm ex}^2 \left[ \frac{1}{2} \log
+ \frac{\mu^2}{M_{\rm ex}^2} + \frac{1}{4} \right] + 2 y_{\rm ex}^4 \left[
+ \frac{1}{2} \log \frac{\mu^2}{M_{\rm ex}^2} - \frac{1}{2} \right].
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%
+%Numcerics
+\section{Numerical Recipe}
+\label{apx_recipe}
+\setcounter{equation}{0}
+
+In this appendix, we give fitting formulas of the prefactors at the
+one-loop level.  Contrary to the analytic formulas including various
+special functions with complex arguments, which may be inconvenient
+for numerical calculations, the fitting formulas give a simple
+procedure to perform a numerical calculations of the decay rate with
+saving computatioal time.  Compared to the analytic expressions, the
+errors of the fitting formulas are $0.05\%$ or better.
+
+\rem{ I removed the expression of $\gamma$.  I believe that we do not
+  have to take $\mu=1/R$ in the following expressions.}
+
+% The decay rate is given by
+% \begin{align}
+%   \gamma = \int d\ln R \frac{1}{R^4}
+%   \left[
+%     \mathcal A'^{(h)}\mathcal A^{(\sigma)}
+%     \mathcal A^{(\psi)}\mathcal A^{(A_\mu,\varphi)}e^{-\mathcal B}
+%   \right]_{\msbar,~\mu=1/R}.
+% \end{align}
+% Each contribution is approximated by the following.
+
+\begin{itemize}
+ \item Higgs
+
+       \begin{align}
+        -\left[\ln\mathcal A'^{(h)}\right]_{\msbar} = -0.99192944327027 + 2.5\ln|\lambda| -
+        3\ln\mu R.
+       \end{align}
+ \item Scalar
+
+       Let $x = \kappa/|\lambda|$.
+       For $x<0.7$,
+       \begin{align}
+        -\left[
+         \ln\mathcal A^{(\sigma)}
+        \right]_{\msbar}
+         & = -0.239133939224974 x^2 + 0.222222222222222 x^3\nonumber                 \\
+         & \hspace{3ex} - 0.134704602106396 x^4 + 0.102278606592866 x^5\nonumber     \\
+         & \hspace{3ex} - 0.0839329261179402 x^6 + 0.0715956882048009 x^7\nonumber   \\
+         & \hspace{3ex} - 0.0625481711576628 x^8 + 0.0555697470602515 x^9\nonumber   \\
+         & \hspace{3ex} - 0.0500042455037409 x^{10} - 0.333333333333333 x^2\ln\mu R.
+       \end{align}
+       For $x>0.7$,
+       \begin{align}
+        -\left[\ln\mathcal A^{(\sigma)}\right]_{\msbar}
+         & = -0.0261559272783723 + 0.0000886704923163256/x^4\nonumber                   \\
+         & \hspace{3ex} + 0.0000962000962000962/x^3 + 0.000198412698412698/x^2\nonumber \\
+         & \hspace{3ex} + 0.00105820105820106/x + 0.111111111111111 x\nonumber          \\
+         & \hspace{3ex} - 0.181204187497805 x^2 + (-0.0055555555555556\nonumber         \\
+         & \hspace{3ex} + 0.166666666666667 x^2)\ln x - 0.333333333333333 x^2 \ln\mu R.
+       \end{align}
+ \item Fermion
+
+       Let $x=y^2/|\lambda|$.
+       For $x<1.3$,
+       \begin{align}
+        -\left[\ln\mathcal A^{(\psi)}\right]_{\msbar}
+         & = 0.64493454511661 x + 0.005114971505109 x^2\nonumber                                  \\
+         & \hspace{3ex} - 0.0366953662258276 x^3 +  0.00476307962690785 x^4\nonumber              \\
+         & \hspace{3ex} - 0.000845451274112082 x^5 + 0.000168244913551417 x^6\nonumber            \\
+         & \hspace{3ex} - 0.0000353785958610453 x^7 +  7.67709260595572\times10^{-6} x^8\nonumber \\
+         & \hspace{3ex} + (0.66666666666667 x +  0.333333333333333 x^2) \ln\mu R.
+       \end{align}
+       For $x>1.3$,
+       \begin{align}
+        -\left[\ln\mathcal A^{(\psi)}\right]_{\msbar}
+         & = -0.227732960077634 + 0.00260942760942761/x^3\nonumber                  \\
+         & \hspace{3ex} +  0.00271164021164021/x^2 + 0.00820105820105820/x\nonumber \\
+         & \hspace{3ex} + 0.53790187962670 x +  0.296728717591129 x^2\nonumber      \\
+         & \hspace{3ex} + (-0.06111111111111111 - 0.3333333333333333 x\nonumber     \\
+         & \hspace{3ex} - 0.1666666666666666 x^2) \ln x\nonumber                    \\
+         & \hspace{3ex} + (0.66666666666667 x + 0.333333333333333 x^2) \ln\mu R.
+       \end{align}
+ \item Gauge
+
+       Let $x=g^2/|\lambda|$.
+       For $x<1.4$,
+       \begin{align}
+        -\left[\ln\mathcal A'^{(A_\mu,\varphi)}\right]_{\msbar} = & 
+         -0.96686103284373 - 1.76813696868318 x\nonumber                          \\
+         & + 0.28259818232508 x^2 + 0.145084271024101 x^3\nonumber       \\
+         & - 0.0241469799983579 x^4 + 0.00555917805602827 x^5\nonumber   \\
+         & - 0.00145020891759152 x^6 + 0.000402580447036276 x^7\nonumber \\
+         & - 0.000115821925959136 x^8 \nonumber         \\
+         & + 0.5\ln|\lambda| + (-0.333333333333333 -  2 x -  x^2) \ln\mu R -\ln J_G.
+       \end{align}
+       For $x>1.4$,
+       \begin{align}
+        -\left[\ln\mathcal A'^{(A_\mu,\varphi)}\right]_{\msbar}
+         & = -27.0091748854198 + 0.000266011476948977/x^4\nonumber                               \\
+         & + 0.000288600288600289/x^3 + 0.000595238095238095/x^2\nonumber           \\
+         & + 0.00317460317460317/x + 1.56519636465016 x\nonumber                    \\
+         & - 0.41321696358277 x^2 + (-3.54033527491510\times 10^{-6}/x^{5}\nonumber \\
+         & - 0.0000404609745704583/x^{4} - 0.00051790047450187/x^{3}\nonumber       \\
+         & - 0.0082864075920299/x^{2} - 0.265165042944955/x\nonumber                \\
+         & + 4.24264068711929) \sqrt{x}\arcsin
+        \left[
+         \frac{s}{\sqrt{s^2+79164837199872 x^9}}
+        \right]\nonumber                                                                         \\
+         & + (-6.01666666666667 +  0.5 x^2)\ln x\nonumber                           \\
+         & + 1.5\ln[3.14159265358979 (-98796.7402597403\nonumber                    \\
+         & + 136316.571428571 x -136594.285714286 x^2\nonumber                      \\
+         & + 92160 x^3 +7372800 x^4 + 6553600 x^5)]\nonumber                        \\
+         & +  0.5 \ln|\lambda| + (-0.333333333333333 -  2 x - x^2) \ln\mu R -\ln J_G,
+       \end{align}
+       where
+       \begin{align}
+        s = 7 + 80 x +1024 x^2 + 16384 x^3 +524288 x^4 -  8388608 x^5.
+       \end{align}
+\end{itemize}
+
+%\bibliographystyle{apsrev}
+\bibliographystyle{JHEP}
+\bibliography{extramatter}
+
+\end{document}

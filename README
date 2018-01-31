@@ -1,0 +1,13 @@
+
+Project: Latex2Grammarly
+Date: 2018.1.31
+Author: So Chigusa
+
+Description: Deform the latex text file to the form compatible with the Grammerly input.
+
+Function:
+ * erace comment line % ~
+ * erace \begin{align} ~ \end{align}
+ * replace $ ~ $ with [expression]
+ * replace \cite{ ~ } with [citation]
+ * erace \rem{ ~ }
