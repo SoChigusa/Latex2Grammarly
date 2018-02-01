@@ -11,3 +11,6 @@ Function:
  * replace $ ~ $ with [expression]
  * replace \cite{ ~ } with [citation]
  * erace \rem{ ~ }
+
+Known issues:
+ * We cannot insert empty line between for example \rem{ ~ }.

@@ -36,7 +36,7 @@ int replaceLatex(string & arg_buffer, const string arg_fbegin, const string arg_
   }
 
   if(replacePos(arg_buffer, posMath, arg_str) == -1) {
-    cout << "Mismatch between beginFlag=" << arg_fbegin << " and endFlag=" << arg_fend << endl;
+    cout << "Mismatch between beginFlag=" << arg_fbegin << " and endFlag=" << arg_fend << " ";
     return -1;
   }
   return 0;
@@ -64,9 +64,11 @@ int main(int argc, char** argv) {
    * 3: empty line
    */
   int lineStatus = 0;
+  int nLine = 0;
   string strBufferLine;
   stringstream tmp;
   while(getline(ifs, strBufferLine)) {
+    nLine++;
     while(strBufferLine[0] == ' ') { strBufferLine.erase(strBufferLine.begin()); }
     if(lineStatus == 0 && (int)strBufferLine.find("\\begin{align}") != -1) {
       lineStatus = 2;
@@ -84,6 +86,7 @@ int main(int argc, char** argv) {
       if(replaceLatex(strBufferLine, "$", "$", "[expression]") == -1 ||
 	 replaceLatex(strBufferLine, "\\cite{", "}", "[citation]") == -1 ||
 	 replaceLatex(strBufferLine, "\\rem{", "}", "") == -1) {
+	cout << "in line: " << nLine << endl;
     	return -1;
       }
       ofs << strBufferLine << endl;
