@@ -3,7 +3,7 @@ Project: Latex2Grammarly
 Date: 2018.1.31
 Author: So Chigusa
 
-Description: Deform the latex text file to the form compatible with the Grammerly input.
+Description: Deform the latex text file to the form compatible with the Grammarly input.
 
 Function:
  * erace comment line % ~
